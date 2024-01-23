@@ -61,17 +61,10 @@
 <div class="color-{{ section.settings.color_scheme }}">
 	<div class="container">
 		<div class="{{ block_section_class }}">
-			{% if section.settings.heading != blank or section.settings.subheading != blank or section.settings.link_title != blank and section.settings.link_url != blank %}
-				<div class="block-block-section-title-wrapper {% if section.settings.subheading != blank %}with-subtitle{% endif %}">
-					{% if section.settings.heading != blank or section.settings.subheading != blank %}
-						<div class="block-section-title-wrap">
-							{% if section.settings.heading != blank %}
-								<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-							{% endif %}
-							{% if section.settings.subheading != blank %}
-								<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-							{% endif %}
-						</div>
+			{% if section.settings.heading != blank or section.settings.link_title != blank and section.settings.link_url != blank %}
+				<div class="block-block-section-title-wrapper">
+					{% if section.settings.heading != blank %}
+						<h2 class="block-section-title">{{ section.settings.heading }}</h2>
 					{% endif %}
 
 					{% if section.settings.link_title != blank and section.settings.link_url != blank %}
@@ -150,11 +143,6 @@
       "id": "heading",
       "label": "t:sections.simple_collections_list.settings.heading.label",
       "default": "Simple collection list"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.simple_collections_list.settings.subheading.label"
     },
     {
       "type": "text",

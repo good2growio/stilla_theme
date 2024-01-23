@@ -8,33 +8,33 @@
         "footer-feature-0": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Feature",
-            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+            "icon": "automobile",
+            "title": "",
+            "text": "<p>Spedizioni rapide e sicure<\/p>"
           }
         },
         "footer-feature-1": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Feature",
-            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+            "icon": "credit-card",
+            "title": "",
+            "text": "<p>Pagamenti sicuri<\/p>"
           }
         },
         "footer-feature-2": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Feature",
-            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+            "icon": "person",
+            "title": "",
+            "text": "<p>Assitenza dedicata<\/p>"
           }
         },
         "3b06b490-195d-4145-9162-c199b9788c67": {
           "type": "feature",
           "settings": {
-            "icon": "check",
-            "title": "Feature",
-            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+            "icon": "envelope",
+            "title": "",
+            "text": "<p>Serve aiuto?\u2028 Contattaci!<\/p>"
           }
         }
       },
@@ -57,14 +57,14 @@
       "type": "newsletter",
       "settings": {
         "newsletter_enable": true,
-        "title": "Iscriviti alla nostra newsletter",
-        "text": "Resta aggiornato per ricevere sconti esclusivi e news sugli ultimi arrivi!",
+        "title": "Iscriviti alla nostra newsletter!",
+        "text": "Resta aggiornato per ricevere sconti esclusivi e news sugli ultimi arrivi.",
         "consent_checkbox": true,
-        "consent_text": "<p>Ho preso visione e accetto l'<strong>Informativa sulla privacy<\/strong><em>*<\/em><\/p>",
+        "consent_text": "<p>Ho preso visione e accetto l’Informativa sulla Privacy* <\/p>",
         "color_scheme": "accent-2",
         "remove_borders": true,
-        "spacing_top": 40,
-        "spacing_bottom": 40
+        "spacing_top": 38,
+        "spacing_bottom": 38
       }
     },
     "footer": {

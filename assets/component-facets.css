@@ -111,34 +111,10 @@ collapsible-expandable + .js-filter .facet {
   margin-top: 1.8rem;
   display: flex;
   justify-content: space-between;
-  position: relative;
-  align-items: flex-end;
-  line-height: 1.2;
 }
 
 .facet-content-footer:empty {
   display: none;
-}
-
-.facet-content-footer-end {
-  text-align: end;
-  margin-left: auto;
-}
-
-.facet-content-footer-end .filter-content-operator-label + facet-remove {
-  margin-top: 1.5rem;
-  display: block;
-}
-
-@media (min-width: 990px) {
-  .facet-content-footer-end .filter-content-operator-label + facet-remove {
-    margin-top: 0.5rem;
-  }
-}
-
-.filter-content-operator-label {
-  font-size: calc(var(--font-body-scale) * 1.2rem);
-  display: block;
 }
 
 .facet-options-list {
@@ -253,7 +229,7 @@ collapsible-expandable + .js-filter .facet {
   width: 3.6rem;
   height: 3.6rem;
   color: rgb(var(--color-foreground));
-  border-radius: var(--buttons-radius);
+  border-radius: var(--border-radius-base);
   position: relative;
   left: 4px;
   background-color: transparent;
@@ -279,7 +255,7 @@ collapsible-expandable + .js-filter .facet {
   height: calc(100% + 4px);
   border: .2rem solid rgb(var(--color-background));
   box-shadow: 0 0 0 0.2rem var(--color-border);
-  border-radius: var(--buttons-radius);
+  border-radius: var(--border-radius-base);
 }
 
 .checkbox-facet-label[data-color] [type=checkbox]:checked,

@@ -7,10 +7,10 @@
 	}
 </style>
 
-{%- if section.settings.text != blank or section.settings.menu != blank or section.settings.show_social -%}
+{%- if section.settings.text != blank or section.settings.menu != blank -%}
 	<div class="announcement-bar-wrapper color-{{ section.settings.color_scheme }} {% if section.settings.remove_border %}border-bottom-none{% endif %}">
 		<div class="container">
-			<div class="announcement-bar {% if section.settings.menu == blank and section.settings.show_social == false %}announcement-bar-single-col{% endif %}">
+			<div class="announcement-bar">
 				<div class="announcement-bar-left">
 				{%- if section.settings.link != blank -%}
 					<a href="{{ section.settings.link }}">

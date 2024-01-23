@@ -1,17 +1,24 @@
 /* Component - Breadcrumb
 =================================== */
 .breadcrumb {
-  font-size: calc(var(--font-body-scale) * 1.3rem);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 500;
   display: none;
   border-bottom: 1px solid var(--color-border);
-  line-height: normal;
   padding: 1.7rem 0;
+  letter-spacing: 0.05rem;
 }
 
 .breadcrumb a {
-  color: rgb(var(--color-accent-1));
+  color: var(--color-gray);
   transition: text-decoration .18s ease;
   text-decoration-color: transparent;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.breadcrumb a[title] {
+  border-bottom: 0;
 }
 
 .breadcrumb a:hover {

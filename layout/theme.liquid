@@ -34,6 +34,16 @@
 	{% endunless %}
 	{% comment %}theme-check-enable AssetPreload{% endcomment %}
 
+  <style>
+    @font-face {
+      font-family: "Aleo";
+      font-weight: 400;
+      font-display: swap;
+      src: url("{{ 'Aleo-Regular.woff' | asset_url }}") format("woff"), 
+          url("{{ 'Aleo-Regular.woff2' | asset_url }}") format("woff2");
+    }
+  </style>
+
 	{% render 'head-css' %}
 
 	{{ 'base.css' | asset_url | stylesheet_tag }}
@@ -64,7 +74,6 @@
 		<script src="{{ 'map.js' | asset_url }}" defer="defer"></script>
 		<script src="{{ 'recipient-form.js' | asset_url }}" defer="defer"></script>
 		<script src="{{ 'countdown.js' | asset_url }}" defer="defer"></script>
-		<script src="{{ 'video-background.js' | asset_url }}" defer="defer"></script>
 		<script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
 	{%- endif -%}
 </head>

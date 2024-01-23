@@ -103,12 +103,12 @@
         "decrease": "Riduci quantità per {{ product }}"
       },
       "availability": {
-        "in_stock": "Disponibile",
-        "always_in_stock": "Disponibile",
-        "out_of_stock": "Esaurito",
-        "number_left": "Solo {{ count }} rimasto\/i",
-        "number_available": "{{ count }} articoli disponibili",
-        "unavailable": "Non disponibile",
+        "in_stock": "Promo",
+        "always_in_stock": "Promo",
+        "out_of_stock": "NON DISPONIBILE",
+        "number_left": "ULTIMI PEZZI",
+        "number_available": "ULTIMI PEZZI",
+        "unavailable": "NON DISPONIBILE",
         "pre_order": "Presto disponibile"
       },
       "media": {
@@ -142,8 +142,7 @@
       "clear_all": "Deseleziona tutto",
       "clear_filters": "Deseleziona filtri",
       "filters_label": "Filtri",
-      "sort_by_label": "Ordina per:",
-      "filter_and_operator_subtitle": "Seleziona tutte"
+      "sort_by_label": "Ordina per:"
     }
   },
   "blogs": {

@@ -96,28 +96,21 @@
 <div class="color-{{ section.settings.color_scheme }}">
 	<div class="container">
 		<div class="{{ block_section_class }}">
-			{% if section.settings.heading != blank or section.settings.subheading != blank or section.settings.link_title != blank and section.settings.link_url != blank %}
-				<div class="block-block-section-title-wrapper {% if section.settings.subheading != blank %}with-subtitle{% endif %}">
-					{% if section.settings.heading != blank or section.settings.subheading != blank %}
-						<div class="block-section-title-wrap">
-							{% if section.settings.heading != blank %}
-								<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-							{% endif %}
-							{% if section.settings.subheading != blank %}
-								<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-							{% endif %}
-						</div>
-					{% endif %}
+			{% if section.settings.heading != blank or section.settings.link_title != blank and section.settings.link_url != blank %}
+			<div class="block-block-section-title-wrapper">
+				{% if section.settings.heading != blank %}
+					<h2 class="block-section-title">{{ section.settings.heading }}</h2>
+				{% endif %}
 
-					{% if section.settings.link_title != blank and section.settings.link_url != blank %}
-						<div class="block-section-title-aux">
-							<a href="{{ section.settings.link_url }}" class="button button-tertiary color-background-1">
-								{{ section.settings.link_title }}
-								{% render 'angle', direction: 'right' %}
-							</a>
-						</div>
-					{% endif %}
-				</div>
+				{% if section.settings.link_title != blank and section.settings.link_url != blank %}
+					<div class="block-section-title-aux">
+						<a href="{{ section.settings.link_url }}" class="button button-tertiary color-background-1">
+							{{ section.settings.link_title }}
+							{% render 'angle', direction: 'right' %}
+						</a>
+					</div>
+				{% endif %}
+			</div>
 			{% endif %}
 
 			{%- if section.settings.layout == 'slider' and section.blocks.size > columns -%}
@@ -214,11 +207,6 @@
       "id": "heading",
       "label": "t:sections.collections_list.settings.heading.label",
       "default": "Collection list"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.collections_grid.settings.subheading.label"
     },
     {
       "type": "text",

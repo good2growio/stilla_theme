@@ -169,13 +169,12 @@
 		{% unless settings.catalog_enabled %}
 			<div class="card-footer">
 				<div class="card-footer-intro {% if settings.products_hide_empty_star_rating %}product-rating-hide-empty{% endif %}">
-					<div class="badge-stock badge-stock-in">
+			    <div class="badge-stock badge-stock-in">
 						<span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
-					</div>
-
+					</div> 
 					{%- if show_rating -%}
 						{% render 'rating', product: card_product %}
-					{% endif %}
+					{%- endif -%}
 				</div>
 
 				{% render 'price', product: card_product, discount_badge: false %}

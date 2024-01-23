@@ -36,18 +36,11 @@
 <section class="section" data-section-id="{{ section.id }}" data-section-type="liquid">
 	<div class="color-{{ section.settings.color_scheme }}">
 		<div class="{% if section.settings.full_width %} block-section-fullwidth{% else %} container {{ block_section_class }}{% endif %}">
-			{% if section.settings.title != blank or section.settings.subtitle != blank %}
+			{%- if section.settings.title != blank -%}
 				<div class="block-block-section-title-wrapper">
-					<div class="block-section-title-wrap">
-						{% if section.settings.title != blank %}
-							<h2 class="block-section-title">{{ section.settings.title }}</h2>
-						{% endif %}
-						{% if section.settings.subtitle != blank %}
-							<p class="block-section-subtitle">{{ section.settings.subtitle }}</p>
-						{% endif %}
-					</div>
+					<h2 class="block-section-title">{{ section.settings.title | escape }}</h2>
 				</div>
-			{% endif %}
+			{%- endif -%}
 
 			<div class="liquid">
 				{{ section.settings.liquid }}
@@ -65,11 +58,6 @@
       "id": "title",
       "label": "t:sections.custom_liquid.settings.title.label",
       "default": "Your title"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "t:sections.custom_liquid.settings.subtitle.label"
     },
     {
       "type": "checkbox",

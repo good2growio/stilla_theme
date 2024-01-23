@@ -602,7 +602,7 @@ media-zoom {
   color: rgb(var(--color-foreground));
   height: auto;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
-  border-radius: var(--buttons-radius);
+  border-radius: var(--border-radius-base);
   font-weight: var(--font-bolder-weight);
 }
 
@@ -650,7 +650,6 @@ media-zoom {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  border-radius: var(--buttons-radius);
 }
 
 @media (min-width: 1200px) {

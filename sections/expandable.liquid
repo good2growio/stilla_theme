@@ -36,39 +36,32 @@
 </style>
 
 <div class="color-{{ section.settings.color_scheme }}">
-	<div class="container {% if section.settings.narrow %} container-narrow{% endif %}">
+  <div class="container {% if section.settings.narrow %} container-narrow{% endif %}">
 		<div class="{{ block_section_class }}">
-			{% if section.settings.heading != blank or section.settings.subheading != blank %}
-				<div class="block-block-section-title-wrapper">
-					<div class="block-section-title-wrap text-{{ section.settings.heading_alignment }}">
-						{% if section.settings.heading != blank %}
-							<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-						{% endif %}
-						{% if section.settings.subheading != blank %}
-							<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-						{% endif %}
-					</div>
-				</div>
-			{% endif %}
+      {% if section.settings.heading != blank %}
+        <div class="block-block-section-title-wrapper">
+          <h2 class="block-section-title">{{ section.settings.heading }}</h2>
+        </div>
+      {% endif %}
 
 			{%- for block in section.blocks -%}
-				<collapsible-expandable expanded="{{ block.settings.expanded }}">
-					<div class="facet">
-						<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-							<span>
-								{% if block.settings.icon != blank %}
-									{% render 'icons', icon: block.settings.icon %}
-								{% endif %}
-								{{ block.settings.heading }}
-							</span>
-							{% render 'angle', direction: 'down' %}
-						</button>
+        <collapsible-expandable expanded="{{ block.settings.expanded }}">
+          <div class="facet">
+            <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+              <span>
+                {% if block.settings.icon != blank %}
+                  {% render 'icons', icon: block.settings.icon %}
+                {% endif %}
+                {{ block.settings.heading }}
+              </span>
+              {% render 'angle', direction: 'down' %}
+            </button>
 
-						<div class="facet-content rte">
-							{{ block.settings.text }}
-						</div>
-					</div>
-				</collapsible-expandable>
+            <div class="facet-content rte">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        </collapsible-expandable>
 			{%- endfor -%}
 		</div>
 	</div>
@@ -101,27 +94,6 @@
       "id": "heading",
       "label": "t:sections.expandable.settings.heading.label",
       "default": "Expandable"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.expandable.settings.subheading.label"
-    },
-    {
-      "type": "select",
-      "id": "heading_alignment",
-      "label": "t:sections.expandable.settings.heading_alignment.label",
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.expandable.settings.heading_alignment.options.label_1"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.expandable.settings.heading_alignment.options.label_2"
-        }
-      ]
     },
     {
       "type": "header",

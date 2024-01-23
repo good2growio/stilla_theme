@@ -11,8 +11,8 @@
         "show_social": false,
         "color_scheme": "accent-3",
         "remove_border": true,
-        "spacing_top": 1.3,
-        "spacing_bottom": 1.3
+        "spacing_top": 1.5,
+        "spacing_bottom": 1.5
       }
     },
     "header": {
@@ -22,9 +22,9 @@
           "type": "megamenu",
           "settings": {
             "menu_item": "Prodotti",
-            "side_title": "Titolo categoria",
+            "side_title": "",
             "side_text": "",
-            "side_url": "shopify:\/\/collections",
+            "side_url": "",
             "side_position": "right"
           }
         }
@@ -53,8 +53,8 @@
         "navigation_remove_border": false,
         "navigation_submenu_color_scheme": "background-1",
         "mobile_navigation_color_scheme": "background-1",
-        "spacing_top": 3.5,
-        "spacing_bottom": 3.5
+        "spacing_top": 2,
+        "spacing_bottom": 2
       }
     },
     "announcement-bar-secondary": {

@@ -966,7 +966,6 @@ class VariantRadios extends VariantSelects {
 customElements.define('variant-radios', VariantRadios);
 
 // Product card
-//
 
 class ProductCard extends HTMLElement {
 	constructor() {
@@ -1287,7 +1286,7 @@ class CartItems extends HTMLElement {
 	}
 
 	updateSectionContents() {
-		return fetch(`${window.location.pathname}?sections=${this.getSectionsToRender().map((section) => section.section).join(',')}&v=${Date.now()}`).then(response => {
+		return fetch(`${window.location.pathname}?sections=${this.getSectionsToRender().map((section) => section.section).join(',')}`).then(response => {
 			return response.json();
 		}).then(response => {
 			this.getSectionsToRender().forEach((section => {
@@ -1326,10 +1325,6 @@ class MiniCart extends CartItems {
 		super();
 
 		this.toggle = this.querySelector('drawer-toggle');
-	}
-
-	connectedCallback() {
-		this.updateSectionContents();
 	}
 
 	open(opener) {
@@ -1512,7 +1507,7 @@ class TabsNavigation extends HTMLElement {
 	}
 
 	setActiveTab(nav) {
-		const target = nav.getAttribute('data-handle');
+		const target = nav.getAttribute('data-collection-handle');
 		const tabsComponent = document.querySelector(`#${this.sliderId}`);
 
 		if (!tabsComponent) {

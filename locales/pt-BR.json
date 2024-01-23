@@ -142,8 +142,7 @@
       "clear_all": "Limpar tudo",
       "clear_filters": "Limpar filtros",
       "filters_label": "Filtros",
-      "sort_by_label": "Classificar por:",
-      "filter_and_operator_subtitle": "Corresponder todos"
+      "sort_by_label": "Classificar por:"
     }
   },
   "blogs": {
