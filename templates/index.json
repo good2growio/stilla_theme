@@ -1,0 +1,449 @@
+{
+  "sections": {
+    "fbb7af84-54a9-42fd-bb6b-fdf56e8d565c": {
+      "type": "slideshow",
+      "blocks": {
+        "template--14819779444799__fbb7af84-54a9-42fd-bb6b-fdf56e8d565c-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/as_slide1.jpg",
+            "overlay_background": "linear-gradient(180deg, rgba(169, 164, 164, 0), rgba(0, 0, 0, 0.8) 100%)",
+            "heading": "Risparmio acqua",
+            "heading_size": "md",
+            "subheading": "<p>Con Areatori e Frangigetto dimezziamo il consumo d'acqua senza peggiorare la resa<\/p>",
+            "text_color": "#ffffff",
+            "button_label": "Scopri di più",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "link": "",
+            "box_align": "bottom-left",
+            "content_width": 60,
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "template--14819779444799__fbb7af84-54a9-42fd-bb6b-fdf56e8d565c-slide-2": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "heading": "Image slide",
+            "heading_size": "md",
+            "subheading": "<p>Tell your brand's story through images<\/p>",
+            "text_color": "#ffffff",
+            "button_label": "Button label",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "link": "",
+            "box_align": "bottom-left",
+            "content_width": 60,
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        }
+      },
+      "block_order": [
+        "template--14819779444799__fbb7af84-54a9-42fd-bb6b-fdf56e8d565c-slide-1",
+        "template--14819779444799__fbb7af84-54a9-42fd-bb6b-fdf56e8d565c-slide-2"
+      ],
+      "settings": {
+        "full_width": true,
+        "slide_height": "adapt_image",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "animation_type": "slide",
+        "accessibility_info": "",
+        "color_scheme": "background-1",
+        "spacing_top": 0,
+        "spacing_bottom": 0
+      }
+    },
+    "brands": {
+      "type": "brands",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-5": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        },
+        "collection-6": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "collection-1",
+        "collection-2",
+        "collection-3",
+        "collection-4",
+        "collection-5",
+        "collection-6"
+      ],
+      "settings": {
+        "heading": "Acquista per categoria",
+        "layout": "slider",
+        "columns": 5,
+        "stack_on_mobile": false,
+        "image_ratio": "adapt",
+        "color_scheme": "background-2",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "collections-1": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "catalogo-prodotti-stilla",
+            "image": "shopify:\/\/shop_images\/as_slide1.jpg",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "Scopri",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "Shop now",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "Shop now",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "collection-1",
+        "collection-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "link_title": "",
+        "link_url": "",
+        "card_ratio": "auto",
+        "show_title": true,
+        "show_description": true,
+        "show_button": true,
+        "card_clickable_desktop": true,
+        "layout": "slider",
+        "columns": 1,
+        "stack_on_mobile": false,
+        "color_scheme": "background-1",
+        "spacing_top": 0,
+        "spacing_bottom": 0
+      }
+    },
+    "collection-grid": {
+      "type": "collection-grid",
+      "settings": {
+        "heading": "Altre categorie",
+        "link_title": "Tutte",
+        "link_url": "shopify:\/\/collections",
+        "collections": [
+
+        ],
+        "show_image": true,
+        "columns": 4,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "tabs": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "cartucce-per-aeratori",
+            "collection_tab_label": "",
+            "products": [
+
+            ]
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "risparmio-acqua-in-bagno",
+            "collection_tab_label": "",
+            "products": [
+
+            ]
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "limitatori-di-portata",
+            "collection_tab_label": "",
+            "products": [
+
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "collection-1",
+        "collection-2"
+      ],
+      "settings": {
+        "heading": "I più venduti",
+        "products_to_show": 4,
+        "show_vendor": false,
+        "show_stock": false,
+        "show_rating": true,
+        "layout": "slider",
+        "columns": "4",
+        "stack_on_mobile": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "featured-collection-1": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "",
+        "products_to_show": 8,
+        "products": [
+
+        ],
+        "heading": "Prodotti in offerta",
+        "show_vendor": false,
+        "show_stock": false,
+        "show_rating": false,
+        "show_collection": false,
+        "collection_overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+        "collection_title": "",
+        "collection_description": "",
+        "collection_text_color": "#ffffff",
+        "collection_button_text": "",
+        "collection_box_align": "bottom-left",
+        "layout": "slider",
+        "columns": "4",
+        "stack_on_mobile": false,
+        "color_scheme": "background-2",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "collections-2": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%)",
+            "button_text": "",
+            "button_type_link": false,
+            "button_color_scheme": "button-primary",
+            "heading_size": "md",
+            "text_color": "#ffffff",
+            "box_align": "bottom-left",
+            "mobile_heading_size": "md",
+            "mobile_box_align": "bottom-left"
+          }
+        }
+      },
+      "block_order": [
+        "collection-0",
+        "collection-1",
+        "collection-2",
+        "collection-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Aquista per categoria",
+        "link_title": "Tutte le categorie",
+        "link_url": "shopify:\/\/collections",
+        "card_ratio": "auto",
+        "show_title": true,
+        "show_description": false,
+        "show_button": true,
+        "card_clickable_desktop": true,
+        "layout": "grid",
+        "columns": 4,
+        "stack_on_mobile": true,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "featured-collection-2": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products_to_show": 3,
+        "products": [
+
+        ],
+        "heading": "Climatizzazione",
+        "show_vendor": false,
+        "show_stock": true,
+        "show_rating": true,
+        "show_collection": true,
+        "collection_overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+        "collection_title": "",
+        "collection_description": "",
+        "collection_text_color": "#ffffff",
+        "collection_button_text": "",
+        "collection_box_align": "bottom-left",
+        "layout": "grid",
+        "columns": "4",
+        "stack_on_mobile": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "blog": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "heading": "Blog posts",
+        "link_title": "Visit our blog",
+        "link_url": "\/blogs\/news",
+        "blog": "news",
+        "posts_to_show": 4,
+        "show_date": true,
+        "show_author": false,
+        "columns": "4",
+        "stack_on_mobile": true,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "fbb7af84-54a9-42fd-bb6b-fdf56e8d565c",
+    "brands",
+    "collections-1",
+    "collection-grid",
+    "tabs",
+    "featured-collection-1",
+    "collections-2",
+    "featured-collection-2",
+    "blog"
+  ]
+}

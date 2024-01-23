@@ -1,0 +1,39 @@
+/* Section - Rich text
+=================================== */
+.section-rich-text {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rich-text-align-left {
+  text-align: left;
+}
+
+.rich-text-align-center {
+  text-align: center;
+}
+
+.section-rich-text > * {
+  margin-top: var(--spacing-base-1);
+  margin-bottom: var(--spacing-base-1);
+}
+
+.section-rich-text .button {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section-rich-text > :first-child {
+  margin-top: 0;
+}
+
+.section-rich-text > :last-child {
+  margin-bottom: 0;
+}
+
+.section-rich-text .button {
+  margin-left: calc(var(--spacing-base-1) / 4);
+  margin-right: calc(var(--spacing-base-1) / 4);
+}

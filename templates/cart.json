@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "show_vendor": false
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        },
+        "fatture_italia_cart_attributes_block_E6Kgtt": {
+          "type": "shopify:\/\/apps\/fatture-italia\/blocks\/cart-attributes-block\/4e9a06c0-faf9-41a1-b8a7-5d1646d7ba61",
+          "settings": {
+            "required": false,
+            "required_modal": true,
+            "invoice_alert": "Prima di procedere con l'acquisto è necessario compilare i dati di fatturazione",
+            "foreign_cf": false,
+            "text_color": "",
+            "border_color": "",
+            "accent_color": "#DDDDDD",
+            "max_width": 100,
+            "block_align": "mx-auto",
+            "trigger_text": "Richiedi la fattura",
+            "text_align": "text-left",
+            "invprivateLabel": "Privato",
+            "invcompanyLabel": "Azienda",
+            "fiscalCodeLabel": "Codice fiscale",
+            "companyNameLabel": "Ragione sociale",
+            "vatNumberLabel": "Partita IVA",
+            "sdiCodeLabel": "Codice SDI",
+            "pecLabel": "PEC"
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons",
+        "fatture_italia_cart_attributes_block_E6Kgtt"
+      ],
+      "settings": {
+        "show_cart_note": false
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer"
+  ]
+}

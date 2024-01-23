@@ -1,0 +1,133 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer-features": {
+      "type": "footer-features",
+      "blocks": {
+        "footer-feature-0": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Feature",
+            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+          }
+        },
+        "footer-feature-1": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Feature",
+            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+          }
+        },
+        "footer-feature-2": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Feature",
+            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+          }
+        },
+        "3b06b490-195d-4145-9162-c199b9788c67": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "title": "Feature",
+            "text": "<p>Pair text with an icon to focus on your store's features.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "footer-feature-0",
+        "footer-feature-1",
+        "footer-feature-2",
+        "3b06b490-195d-4145-9162-c199b9788c67"
+      ],
+      "settings": {
+        "inline": false,
+        "stack_on_mobile": true,
+        "icon_size": "large",
+        "color_scheme": "background-2",
+        "spacing_top": 46,
+        "spacing_bottom": 46
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "newsletter_enable": true,
+        "title": "Iscriviti alla nostra newsletter",
+        "text": "Resta aggiornato per ricevere sconti esclusivi e news sugli ultimi arrivi!",
+        "consent_checkbox": true,
+        "consent_text": "<p>Ho preso visione e accetto l'<strong>Informativa sulla privacy<\/strong><em>*<\/em><\/p>",
+        "color_scheme": "accent-2",
+        "remove_borders": true,
+        "spacing_top": 40,
+        "spacing_bottom": 40
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "b2bd0a69-5cd2-4bad-b52a-7e0a592c97fe": {
+          "type": "menu",
+          "settings": {
+            "title": "Stilla Srl",
+            "menu": "footer"
+          }
+        },
+        "d7ad484c-0cc0-4507-bf72-7cfa7ab016d5": {
+          "type": "menu",
+          "settings": {
+            "title": "Resi, Spedizioni e Policy",
+            "menu": "footer"
+          }
+        },
+        "c2309f4c-a7de-4fc4-a3f2-af9a86ec6d42": {
+          "type": "menu",
+          "settings": {
+            "title": "Il tuo Account",
+            "menu": "footer"
+          }
+        },
+        "5f93bd46-ca30-412d-9967-0f2fb03b77e4": {
+          "type": "text",
+          "settings": {
+            "title": "DOVE SIAMO",
+            "link": "",
+            "image_width": 340,
+            "text": "<h5><strong>Stilla s.r.l<br\/><\/strong>Via San Domenico, 6<br\/>20025 Legnano (MI)<\/h5>"
+          }
+        }
+      },
+      "block_order": [
+        "b2bd0a69-5cd2-4bad-b52a-7e0a592c97fe",
+        "d7ad484c-0cc0-4507-bf72-7cfa7ab016d5",
+        "c2309f4c-a7de-4fc4-a3f2-af9a86ec6d42",
+        "5f93bd46-ca30-412d-9967-0f2fb03b77e4"
+      ],
+      "settings": {
+        "payment_enable": true,
+        "show_social": true,
+        "enable_follow_on_shop": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "aa7ca73f-8471-4845-ba91-c3b24d2d4cde": {
+      "type": "custom-liquid",
+      "settings": {
+        "title": "",
+        "full_width": false,
+        "liquid": "STILLA s.r.l. a socio unico | CF e P.IVA 08329900966 | info@acquastilla.com",
+        "color_scheme": "background-2"
+      }
+    }
+  },
+  "order": [
+    "footer-features",
+    "newsletter",
+    "footer",
+    "aa7ca73f-8471-4845-ba91-c3b24d2d4cde"
+  ]
+}

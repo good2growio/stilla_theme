@@ -1,0 +1,137 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_vendor": false,
+            "show_stock": true,
+            "show_sku": true,
+            "show_barcode": false,
+            "barcode_label": "Barcode",
+            "show_rating": true,
+            "hide_empty_star_rating": true,
+            "show_custom_badges": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "Descrizione",
+            "icon": "info",
+            "expanded": true
+          }
+        },
+        "9dde46b5-a804-43a1-8de6-09c087b64165": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "icon": "",
+            "custom_liquid": "{% for variant in product.variants %}\n{% if product.selected_or_first_available_variant.id == variant.id %}\n{{variant.title}} - {{ variant.metafields.acquastilla-middleware.measurements }}<\/strong>\n{% endif %}\n{% endfor %}\n<script src=\"https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/3.5.1\/jquery.min.js\"><\/script>\n<script type=\"text\/javascript\">\njQuery(document).ready(function($){\n$(\".no-js-hidden\").on(\"click\", function(){\nvar refreshint = setInterval(function(){\nlocation.reload();\n}, 1000);    });   });\n<\/script>",
+            "position": "right",
+            "expanded": false
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "icon": "",
+            "text_2": "",
+            "icon_2": "",
+            "text_3": "",
+            "icon_3": "",
+            "text_4": "",
+            "icon_4": "",
+            "color_scheme": "none"
+          }
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "picker_type": "button",
+            "hide_single_variant": false,
+            "out_of_stock_variants": "disable"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "show_add_to_cart": true,
+            "show_buy_now": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "availability": {
+          "type": "availability",
+          "settings": {
+          }
+        },
+        "extra": {
+          "type": "extra",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Use this text to encourage <strong>communication<\/strong> or promote <strong>sharing<\/strong> on social networks.<\/p><p><a href=\"#\">You can also add links<\/a><\/p>",
+            "show_facebook": true,
+            "show_twitter": true,
+            "show_linkedin": true
+          }
+        },
+        "c0c9ef28-2bf1-4d70-bb20-4870eed221a8": {
+          "type": "expandable",
+          "settings": {
+            "title": "Title",
+            "icon": "",
+            "text": "",
+            "expanded": false
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "description",
+        "9dde46b5-a804-43a1-8de6-09c087b64165",
+        "price",
+        "subtitle",
+        "variants",
+        "buy_buttons",
+        "availability",
+        "extra",
+        "c0c9ef28-2bf1-4d70-bb20-4870eed221a8"
+      ],
+      "settings": {
+        "hide_variants": false,
+        "thumbnail_navigation": false,
+        "image_zoom_type": "lightbox",
+        "image_disclaimer": ""
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show": true,
+        "title": "Ti potrebbe interessare",
+        "count": "4",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_rating": false,
+        "color_scheme": "background-1",
+        "spacing_top": 50,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations"
+  ]
+}
