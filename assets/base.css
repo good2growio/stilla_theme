@@ -1240,7 +1240,8 @@ button,
   background-color: rgb(var(--color-button));
   box-shadow: 0 0 0 0.1rem rgb(var(--color-button));
   color: rgb(var(--color-button-text));
-  min-width: 12rem;
+  /* min-width: 12rem; */
+  min-width: 13.5rem;
   height: auto;
   font-size: calc(var(--font-body-scale) * 1.5rem);
   line-height: calc(1 + 0.2 / var(--font-body-scale));
@@ -3342,7 +3343,7 @@ predictive-search:not([loading]) .predictive-search-status-loading {
 .navigation-main > .navigation-item {
   text-transform: uppercase;
   padding: 0 1.35rem;
-  height: 5rem;
+  height: 6.7rem;
 }
 
 .navigation-main > .navigation-item::after {
@@ -3403,6 +3404,12 @@ predictive-search:not([loading]) .predictive-search-status-loading {
   display: flex;
   align-items: center;
   letter-spacing: 0.025rem;
+}
+
+@media (min-width: 990px) {
+  .navigation-item > a {
+    padding: 1.5rem 0;
+  }
 }
 
 .navigation-sub-menu .navigation-item > a {
@@ -4216,6 +4223,10 @@ predictive-search:not([loading]) .predictive-search-status-loading {
   .header-search-global-form [type=search]:hover,
   .header-search-global-form [type=search]:focus-visible {
     z-index: 2;
+  }
+
+  .grid-2 .card-overlay-info {
+    padding: 1.6rem;
   }
 }
 

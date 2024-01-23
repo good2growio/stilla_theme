@@ -84,7 +84,7 @@
 <div class="footer-info-wrapper color-{{ section.settings.color_scheme }}">
 	<div class="container">
 		<div class="footer-info">
-			<div class="footer-info-start">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }} - {{ powered_by_link }}</div>
+			<div class="footer-info-start">{{ section.settings.footer_info_text }}</div>
 
 			{%- if section.settings.payment_enable -%}
 
@@ -182,6 +182,12 @@
           "label": "t:sections.all.colors.background_2.label"
         }
       ]
+    },
+    {
+      "type": "text",
+      "id": "footer_info_text",
+      "label": "Footer info text",
+      "default": "STILLA s.r.l. a socio unico | CF e P.IVA 08329900966 | info@acquastilla.com"
     }
   ],
   "max_blocks": 4,

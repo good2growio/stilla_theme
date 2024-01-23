@@ -161,7 +161,7 @@ slideshow-component {
 
 @media (min-width: 1200px) {
   .slideshow-content-container {
-    padding: 5rem;
+    padding: 3.2rem;
   }
 }
 
@@ -181,8 +181,9 @@ slideshow-component {
 }
 
 .slideshow-heading {
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   color: currentColor;
+  letter-spacing: -0.025rem;
 }
 
 .slideshow-heading-sm {
@@ -232,7 +233,7 @@ slideshow-component {
 .slideshow-text {
   font-size: calc(var(--font-body-scale) * 1.5rem);
   line-height: 1.2;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 750px) {
@@ -380,5 +381,6 @@ slideshow-navigation {
   .slideshow-buttons .button {
     padding-left: 2.2rem;
     padding-right: 2.2rem;
+    min-width: 13.5rem;
   }
 }

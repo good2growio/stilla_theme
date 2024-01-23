@@ -49,8 +49,8 @@
         "stack_on_mobile": true,
         "icon_size": "large",
         "color_scheme": "background-2",
-        "spacing_top": 46,
-        "spacing_bottom": 46
+        "spacing_top": 36,
+        "spacing_bottom": 36
       }
     },
     "newsletter": {
@@ -73,31 +73,31 @@
         "b2bd0a69-5cd2-4bad-b52a-7e0a592c97fe": {
           "type": "menu",
           "settings": {
-            "title": "Stilla Srl",
-            "menu": "footer"
+            "title": "Stilla S.r.l",
+            "menu": "footer-menu-left"
           }
         },
         "d7ad484c-0cc0-4507-bf72-7cfa7ab016d5": {
           "type": "menu",
           "settings": {
-            "title": "Resi, Spedizioni e Policy",
-            "menu": "footer"
+            "title": "Assistenza",
+            "menu": "footer-menu-middle"
           }
         },
         "c2309f4c-a7de-4fc4-a3f2-af9a86ec6d42": {
           "type": "menu",
           "settings": {
-            "title": "Il tuo Account",
-            "menu": "footer"
+            "title": "Il tuo account",
+            "menu": "footer-menu-right"
           }
         },
         "5f93bd46-ca30-412d-9967-0f2fb03b77e4": {
           "type": "text",
           "settings": {
-            "title": "DOVE SIAMO",
+            "title": "Dove siamo",
             "link": "",
             "image_width": 340,
-            "text": "<h5><strong>Stilla s.r.l<br\/><\/strong>Via San Domenico, 6<br\/>20025 Legnano (MI)<\/h5>"
+            "text": "<p>Via San Domenico, <\/p><p>6\u202820025 Legnano (MI)<\/p>"
           }
         }
       },
@@ -111,11 +111,13 @@
         "payment_enable": true,
         "show_social": true,
         "enable_follow_on_shop": true,
-        "color_scheme": "background-1"
+        "color_scheme": "background-1",
+        "footer_info_text": "STILLA s.r.l. a socio unico | CF e P.IVA 08329900966 | info@acquastilla.com"
       }
     },
     "aa7ca73f-8471-4845-ba91-c3b24d2d4cde": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "title": "",
         "full_width": false,

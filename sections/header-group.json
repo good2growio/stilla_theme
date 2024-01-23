@@ -5,7 +5,7 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "text": "Promote discounts in this area",
+        "text": "Spedizione gratuita da 49€",
         "link": "",
         "menu": "",
         "show_social": false,
@@ -53,8 +53,8 @@
         "navigation_remove_border": false,
         "navigation_submenu_color_scheme": "background-1",
         "mobile_navigation_color_scheme": "background-1",
-        "spacing_top": 2,
-        "spacing_bottom": 2
+        "spacing_top": 3.6,
+        "spacing_bottom": 1
       }
     },
     "announcement-bar-secondary": {

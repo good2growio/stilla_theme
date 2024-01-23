@@ -611,3 +611,9 @@
   margin-top: .2rem;
   margin-left: auto;
 }
+
+@media (min-width: 1200px) {
+  .featured-collection .card-footer {
+    margin-bottom: 6rem;
+  }
+}
