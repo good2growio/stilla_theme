@@ -89,13 +89,13 @@
 		{% endif %}
 
 		--color-sale: rgba({{ settings.color_badge_sale.red }}, {{ settings.color_badge_sale.green }}, {{ settings.color_badge_sale.blue }}, {{ settings.color_badge_sale.alpha }});
-		--color-sale-background: {{ settings.color_badge_sale | color_lighten: 35 }};
+		--color-sale-background: {{ settings.color_badge_sale }};
 		--color-error: rgba({{ settings.color_badge_outofstock.red }}, {{ settings.color_badge_outofstock.green }}, {{ settings.color_badge_outofstock.blue }}, {{ settings.color_badge_outofstock.alpha }});
-		--color-error-background: {{ settings.color_badge_outofstock | color_lighten: 56 }};
+		--color-error-background: {{ settings.color_bg_badge_outofstock }};
 		--color-success: rgba({{ settings.color_badge_instock.red }}, {{ settings.color_badge_instock.green }}, {{ settings.color_badge_instock.blue }}, {{ settings.color_badge_instock.alpha }});
-		--color-success-background: {{ settings.color_badge_instock | color_lighten: 58 }};
+		--color-success-background: {{ settings.color_bg_badge_instock }};
 		--color-warning: rgba({{ settings.color_badge_limitedstock.red }}, {{ settings.color_badge_limitedstock.green }}, {{ settings.color_badge_limitedstock.blue }}, {{ settings.color_badge_limitedstock.alpha }});
-		--color-warning-background: {{ settings.color_badge_limitedstock | color_lighten: 46 }};
+		--color-warning-background: {{ settings.color_bg_badge_limitedstock }};
 		--color-preorder: rgba({{ settings.color_badge_preorder.red }}, {{ settings.color_badge_preorder.green }}, {{ settings.color_badge_preorder.blue }}, {{ settings.color_badge_preorder.alpha }});
 		--color-preorder-background: {{ settings.color_badge_preorder | color_lighten: 39 }};
 		--color-price: {{ settings.price_color.red }}, {{ settings.price_color.green }}, {{ settings.price_color.blue }}, {{ settings.price_color.alpha }};

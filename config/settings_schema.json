@@ -164,19 +164,37 @@
         "type": "color",
         "id": "color_badge_instock",
         "label": "t:settings_schema.colors.settings.color_badge_instock.label",
-        "default": "#337239"
+        "default": "#5A822C"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_instock",
+        "label": "In stock badge background",
+        "default": "#ECF3E4"
       },
       {
         "type": "color",
         "id": "color_badge_limitedstock",
         "label": "t:settings_schema.colors.settings.color_badge_limitedstock.label",
-        "default": "#bd6b1b"
+        "default": "#BC6310"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_limitedstock",
+        "label": "Limited stock badge background",
+        "default": "#F5E2CE"
       },
       {
         "type": "color",
         "id": "color_badge_outofstock",
         "label": "t:settings_schema.colors.settings.color_badge_outofstock.label",
-        "default": "#922C2C"
+        "default": "#D1191C"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_outofstock",
+        "label": "Out of stock badge background",
+        "default": "#F4C6C6"
       },
       {
         "type": "color",

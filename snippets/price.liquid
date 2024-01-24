@@ -66,7 +66,7 @@
 					<span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
 					<span>
 
-						{% if discount_badge == true and target.compare_at_price > target.price and settings.sale_badge_mode != 'none' %}
+						{% comment %} {% if discount_badge == true and target.compare_at_price > target.price and settings.sale_badge_mode != 'none' %}
 							<span class="badge badge-sale">
 								{% if settings.sale_badge_mode == 'percentage' %}
 									{% assign sale_percentage = target.compare_at_price | minus: target.price | times: 1.0 | divided_by: target.compare_at_price | times: 100 | round %}
@@ -75,7 +75,7 @@
 									{{ 'products.product.on_sale' | t }}
 								{% endif %}
 							</span>
-						{% endif %}
+						{% endif %} {% endcomment %}
 
 						<s class="price-item price-item-regular">
 							{% if settings.currency_code_enabled %}

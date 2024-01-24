@@ -617,3 +617,7 @@
     margin-bottom: 6rem;
   }
 }
+
+.product-grid .card-heading a {
+  font-weight: 500;
+}
