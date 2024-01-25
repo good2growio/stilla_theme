@@ -543,7 +543,7 @@ sup {
 }
 
 .link-text:hover {
-  color: rgb(var(--color-accent-1));
+  color: rgb(var(--color-accent-2));
   text-decoration: underline;
 }
 
@@ -3474,6 +3474,11 @@ predictive-search:not([loading]) .predictive-search-status-loading {
   font-size: inherit;
   font-weight: var(--font-body-weight);
   font-family: var(--font-body-family);
+  transition: 0.2s;
+}
+
+.mega-menu-container .mega-menu-column-title:hover {
+  color: rgb(var(--color-accent-2));
 }
 
 .mega-menu-columns {
@@ -4225,12 +4230,21 @@ predictive-search:not([loading]) .predictive-search-status-loading {
 
 @media (min-width: 1200px) {
   .header-search-global-form [type=search]:hover,
+  .header-search-global-form [type=search]:focus,
   .header-search-global-form [type=search]:focus-visible {
     z-index: 2;
+    box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-accent-2));
   }
 
   .grid-2 .card-overlay-info {
     padding: 1.6rem;
+  }
+}
+
+@media (min-width: 990px) {
+  .collection-banner .block-section {
+    margin-top: 1.8rem;
+    margin-bottom: 4.5rem;
   }
 }
 
