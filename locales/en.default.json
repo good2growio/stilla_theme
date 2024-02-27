@@ -16,6 +16,7 @@
       "share_on_x": "Share on X",
       "share_on_linkedin": "Share on Pinterest",
       "links": {
+
         "facebook": "Facebook",
         "instagram": "Instagram",
         "linkedin": "LinkedIn",
@@ -128,7 +129,11 @@
         "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"{{ class }}\">{{ location_name }}<\/span>",
         "unavailable": "Couldn't load pickup availability",
         "refresh": "Refresh"
-      }
+      },
+      "variants_title": "Variants",
+      "sku_title": "Code: ",
+      "measure_title": "Measures: ",
+      "package_title": "Package: {{ item }} pcs"
     },
     "facets": {
       "mobile_drawer_title": "Filter products",

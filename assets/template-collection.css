@@ -214,6 +214,7 @@
 
 .collection-actions-main label {
   margin: 0;
+  color: #777;
 }
 
 .collection-actions-main > * {
@@ -248,6 +249,7 @@
 
   .collection-actions-main select {
     min-width: 20rem;
+    color: #777;
   }
 
   .collection-actions-main .button-form-input {
@@ -426,4 +428,12 @@
 
 .template-search-search-bar [type=submit] svg path {
   fill: currentColor;
+}
+
+.collection .card-eyebrow a {
+  color: #777;
+}
+
+.collection .price-item .sup {
+  color: #777;
 }

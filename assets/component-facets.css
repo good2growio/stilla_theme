@@ -51,7 +51,8 @@ collapsible-expandable + .js-filter .facet {
 }
 
 .facet-toggle {
-  font-family: var(--font-heading-family);
+  /* font-family: var(--font-heading-family); */
+  font-family: var(--font-body-family); 
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
@@ -61,14 +62,18 @@ collapsible-expandable + .js-filter .facet {
   text-decoration: none;
   background: none;
   box-shadow: none;
-  color: rgb(var(--color-foreground-alt));
+  /* color: rgb(var(--color-foreground-alt)); */
+  color: var(--color-black);
   text-transform: uppercase;
   height: auto;
   width: 100%;
-  font-size: calc(var(--font-heading-scale) * 1.5rem);
-  line-height: calc(1 + 0.2 / var(--font-heading-scale));
+  /* font-size: calc(var(--font-heading-scale) * 1.5rem); */
+  font-size: 1.4rem;
+  /* line-height: calc(1 + 0.2 / var(--font-heading-scale)); */
+  line-height: 2rem;
   border-radius: 0;
   font-weight: var(--font-bolder-weight);
+  letter-spacing: 0.01rem;
 }
 
 .facet-toggle > span:first-child {
@@ -101,6 +106,7 @@ collapsible-expandable + .js-filter .facet {
   margin-bottom: 1.8rem;
   font-size: calc(var(--font-body-scale) * 1.4rem);
   display: flex;
+  color: #777;
 }
 
 .facet-content-header .facet-link-reset {

@@ -7,13 +7,18 @@
           "type": "title",
           "settings": {
             "show_vendor": false,
-            "show_stock": true,
+            "show_stock": false,
             "show_sku": true,
             "show_barcode": false,
             "barcode_label": "Barcode",
             "show_rating": true,
             "hide_empty_star_rating": true,
             "show_custom_badges": true
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
           }
         },
         "description": {
@@ -33,11 +38,6 @@
             "custom_liquid": "{% for variant in product.variants %}\n{% if product.selected_or_first_available_variant.id == variant.id %}\n{{variant.title}} - {{ variant.metafields.acquastilla-middleware.measurements }}<\/strong>\n{% endif %}\n{% endfor %}\n<script src=\"https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/3.5.1\/jquery.min.js\"><\/script>\n<script type=\"text\/javascript\">\njQuery(document).ready(function($){\n$(\".no-js-hidden\").on(\"click\", function(){\nvar refreshint = setInterval(function(){\nlocation.reload();\n}, 1000);    });   });\n<\/script>",
             "position": "right",
             "expanded": false
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {
           }
         },
         "subtitle": {
@@ -98,9 +98,9 @@
       },
       "block_order": [
         "title",
+        "price",
         "description",
         "9dde46b5-a804-43a1-8de6-09c087b64165",
-        "price",
         "subtitle",
         "variants",
         "buy_buttons",
@@ -121,7 +121,7 @@
         "show": true,
         "title": "Ti potrebbe interessare",
         "count": "4",
-        "show_vendor": true,
+        "show_vendor": false,
         "show_stock": true,
         "show_rating": false,
         "color_scheme": "background-1",

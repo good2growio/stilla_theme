@@ -621,3 +621,20 @@
 .product-grid .card-heading a {
   font-weight: 500;
 }
+
+.card-product .price-sale {
+  display: flex;
+  align-items: center;
+}
+
+.card-product .price-sale .price-item-last {
+  margin-right: 0.5rem;
+  order: -1;
+}
+
+.card-product .price-item-last + .price-item .sup {
+  display: inline-block;
+  line-height: 1;
+  top: 0.5em; 
+  margin-left: 0.5rem;
+}

@@ -898,7 +898,8 @@ select {
   min-width: calc(7rem + var(--inputs-border-width) * 2);
   position: relative;
   border: var(--inputs-border-width) solid var(--color-border);
-  box-shadow: 0 0.2rem 0 var(--color-box-shadow);
+  /* box-shadow: 0 0.2rem 0 var(--color-box-shadow); */
+  box-shadow: none;
   transition: box-shadow 0.18s ease;
 }
 
@@ -950,7 +951,8 @@ textarea:focus-visible,
 select:hover,
 select:focus-visible {
   outline: 0;
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  /* box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground)); */
+  box-shadow: none !important;
 }
 
 input[type=file] {

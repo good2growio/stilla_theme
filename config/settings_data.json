@@ -26,6 +26,7 @@
     "typography_headings_size": 115,
     "typography_body": "lato_n4",
     "typography_body_size": 100,
+    "favicon": "shopify:\/\/shop_images\/logoAzienda_1.png",
     "breadcrumbs_enabled": true,
     "button_top_enabled": true,
     "buttons_style": "solid",

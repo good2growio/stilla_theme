@@ -128,7 +128,11 @@
         "pick_up_unavailable_at_html": "Attualmente disponibile per il ritiro da <span class=\"{{ class }}\">{{ location_name }}<\/span>",
         "unavailable": "Impossibile caricare la disponibilità per il ritiro",
         "refresh": "Aggiorna"
-      }
+      },
+      "variants_title": "Varianti",
+      "sku_title": "Codice: ",
+      "measure_title": "Misure: ",
+      "package_title": "Confezione: {{ item }} pezzo"
     },
     "facets": {
       "mobile_drawer_title": "Filtra i prodotti",

@@ -74,6 +74,7 @@
 										<div class="product-media-thumbnails">
 											<div class="product-media-thumbnail product-media is-active
 													{% if section.settings.hide_variants and variant_images contains featured_media.src %} product-media-thumbnail-variant{% endif %}"
+                          thumbnail-alt="{{ product.media[0].alt }}"
 												data-media-id="{{ featured_media.id }}">
 												{% render 'product-gallery-media-thumbnail',
 													media: featured_media, position: media_position, media_width: 400, lazyload: false
@@ -85,6 +86,8 @@
 													{%- assign media_position = media_position | default: 1 | plus: 1 -%}
 													<div class="product-media-thumbnail product-media
 															{% if section.settings.hide_variants and variant_images contains media.src %} product-media-thumbnail-variant{% endif %}"
+                              {% if media.alt != blank and product.selected_or_first_available_variant.title != media.alt %}style="display: none;"{% endif %}
+                            thumbnail-alt="{{ media.alt }}"
 														data-media-id="{{ media.id }}">
 														{% render 'product-gallery-media-thumbnail',
 															media: media, position: media_position, media_width: 400, lazyload: true
@@ -211,6 +214,157 @@
 										{% endif %}
 									</div>
 								{% endif %}
+              
+              {% when 'description' %}
+                <div class="product-info-description">
+                  <div class="product-info-description-content">
+                    {% for block in section.blocks %}
+                      {% case block.type %}
+                        {%- when 'custom_liquid' -%}
+                          {% liquid
+                            if block.settings.position != "left"
+                              continue
+                            endif
+          
+                            assign is_expandable = false
+                            if block.settings.title != blank or block.settings.icon != blank
+                              assign is_expandable = true
+                            endif
+                          %}
+                          {% capture liquid_output %}{{ block.settings.custom_liquid }}{% endcapture %}
+                          {% if liquid_output != blank %}
+                            {% if is_expandable %}
+                              <collapsible-expandable expanded="{{ block.settings.expanded }}" {{ block.shopify_attributes }}>
+                                <div class="facet">
+                                  <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                    <span>
+                                      {% if block.settings.icon != blank %}
+                                        {% render 'icons', icon: block.settings.icon %}
+                                      {% endif %}
+                                      {{ block.settings.title }}
+                                    </span>
+                                    {% render 'angle', direction: 'down' %}
+                                  </button>
+                            {% else %}
+                              <div class="facet facet-standalone" {{ block.shopify_attributes }}>
+                            {% endif %}
+          
+                            <div class="facet-content rte">
+                              {{ block.settings.custom_liquid }}
+                            </div>
+          
+                            {% if is_expandable %}
+                                </div>
+                              </collapsible-expandable>
+                            {% else %}
+                              </div>
+                            {% endif %}
+                          {% endif %}
+          
+                        {% when 'description' %}               
+                          {% if product.description != blank %}
+                            <collapsible-expandable expanded="{{ block.settings.expanded }}">
+                              <div class="facet">
+                                <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                  <span>
+                                    {% if block.settings.icon != blank %}
+                                      {% render 'icons', icon: block.settings.icon %}
+                                    {% endif %}
+                                    {{ block.settings.title }}
+                                  </span>
+                                  {% render 'angle', direction: 'down' %}
+                                </button>
+          
+                                <div class="variant-facet-description facet-content rte">
+                                  {% comment %} {{ product.description }} {% endcomment %}
+                                  <div class="variant-description-value">
+                                    {%- if product.selected_or_first_available_variant.metafields.acquastilla-middleware.description != blank -%} 
+                                    
+                                      {{ product.selected_or_first_available_variant.metafields.acquastilla-middleware.description }}
+                                      {%- else -%}
+                                      {{ product.description }}
+                                    {%- endif -%}
+                                  </div>
+                                  <div class="variant-weights-value">
+                                    {%- if product.selected_or_first_available_variant.metafields.acquastilla-middleware.weights != blank -%}                              
+                                      {{ product.selected_or_first_available_variant.metafields.acquastilla-middleware.weights }}         
+                                    {%- endif -%}
+                                  </div>
+                                  <div class="variant-instructions-value">
+                                    {%- if product.selected_or_first_available_variant.metafields.custom.assembly_instructions != blank -%}                              
+                                     {{ product.selected_or_first_available_variant.metafields.custom.assembly_instructions }}       
+                                    {%- endif -%}
+                                  </div>  
+                                  <div class="variant-notes-value">
+                                    {%- if product.selected_or_first_available_variant.metafields.custom.environmental_notes != blank -%}                              
+                                      {{ product.selected_or_first_available_variant.metafields.custom.environmental_notes }}         
+                                    {%- endif -%}
+                                  </div>
+                                    <div class="hidden">
+                                    {%- for variant in product.variants -%}
+                                      {%- if variant.metafields.acquastilla-middleware.description != blank -%}                              
+                                          <div class="variant-description" data-variant="{{ variant.sku }}" data-value="{{ variant.metafields.acquastilla-middleware.description }}"></div>         
+                                      {%- else -%}
+                                        {{ product.description }}
+                                      {%- endif -%}
+                                      {%- if variant.metafields.acquastilla-middleware.weights != blank -%}                              
+                                      <div class="variant-weights" data-variant="{{ variant.sku }}" data-value="{{ variant.metafields.acquastilla-middleware.weights }}"></div>         
+                                    {%- endif -%}
+                                      {%- if variant.metafields.custom.assembly_instructions != blank -%}                              
+                                        <div class="variant-instructions" data-variant="{{ variant.sku }}" data-value="{{ variant.metafields.custom.assembly_instructions }}"></div>         
+                                      {%- endif -%}
+                                      {%- if variant.metafields.custom.environmental_notes != blank -%}                              
+                                        <div class="variant-notes" data-variant="{{ variant.sku }}" data-value="{{ variant.metafields.custom.environmental_notes }}"></div>         
+                                      {%- endif -%}
+                                    {%- endfor -%}
+                                  </div>
+                                </div>
+          
+                              </div>
+                            </collapsible-expandable>
+                          {% endif %}
+          
+                        {% when 'reviews' %}
+                          <collapsible-expandable expanded="{{ block.settings.expanded }}" id="product-reviews" class="product-reviews">
+                            <div class="facet">
+                              <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                <span>
+                                  {% render 'icon-star-empty' %}
+                                  {{ 'products.product.reviews' | t }}
+                                </span>
+                                {% render 'angle', direction: 'down' %}
+                              </button>
+          
+                              <div class="facet-content">
+                                {% render 'product-review-widget', product: product %}
+                              </div>
+                            </div>
+                          </collapsible-expandable>
+          
+                        {% when 'expandable' %}
+                          {% if block.settings.text != blank %}
+                            <collapsible-expandable expanded="{{ block.settings.expanded }}">
+                              <div class="facet">
+                                <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                  <span>
+                                    {% if block.settings.icon != blank %}
+                                      {% render 'icons', icon: block.settings.icon %}
+                                    {% endif %}
+                                    {{ block.settings.title }}
+                                  </span>
+                                  {% render 'angle', direction: 'down' %}
+                                </button>
+          
+                                <div class="facet-content rte">
+                                  {{ block.settings.text }}
+                                </div>
+                              </div>
+                            </collapsible-expandable>
+                          {% endif %}
+                      {% endcase %}
+                    {% endfor %}
+                  </div>
+                </div>
 
 							{% when 'title' %}
 								<div class="product-info-main" {{ block.shopify_attributes }}>
@@ -374,23 +528,61 @@
 												data-url="{{ product.url }}"
 												data-hide-single="{{ block.settings.hide_single_variant }}"
 												data-variants-visibility="{{ block.settings.out_of_stock_variants }}">
+
+                        <div class="hidden measure-title" data-value="{{ 'products.product.measure_title' | t }}"></div>
+                        <div class="hidden sku-title" data-value="{{ 'products.product.sku_title' | t }}"></div>
+
 												{%- for option in product.options_with_values -%}
-													<fieldset class="js product-form-input {% if swatches_options contains option.name %}color-swatch{% endif %}"
-															  data-option-name="{{ option.name }}"
-													>
-														<legend>{{ option.name }}</legend>
-														{%- for value in option.values -%}
-															<input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-																name="{{ option.name }}"
-																value="{{ value | escape }}"
-																form="{{ product_form_id }}"
-																{% if option.selected_value == value %}checked{% endif %}
-															>
-															<label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-																{{ value }}
-															</label>
-														{%- endfor -%}
-													</fieldset>
+                          {%- if option.name == 'SKU' or option.name == 'sku' -%}
+                            <div class="hidden">
+                              <div class="sku-legend" data-value="{{ 'products.product.variants_title' | t }}"></div>
+                              {%- for variant in product.variants -%} 
+                                <div class="hidden variant-sku" data-value="{{ variant.sku }}">
+                                  {%- if variant.metafields.custom.title.value != blank -%}
+                                    <div  class="hidden variant-title" data-value="{{ variant.metafields.custom.title.value }} "></div>
+                                  {%- endif -%}
+                                  {%- if variant.metafields.acquastilla-middleware.measurements.value != blank -%}
+                                    <div  class="hidden measure-value" data-value="{{ variant.metafields.acquastilla-middleware.measurements.value }} "></div>
+                                  {%- endif -%}
+  
+                                  {%- if variant.metafields.acquastilla-middleware.pieces_per_package != blank -%}
+                                    {%- assign package_amount = variant.metafields.acquastilla-middleware.pieces_per_package -%}
+                                    <p>{{ package_amount }}</p>
+                                    <div class="hidden package-title" data-value="{{ 'products.product.package_title' | t: item: package_amount }}"></div>
+                                  {%- endif -%}
+                                  <div class="variant-new-price" data-value="{{ variant.price | money }}"></div>
+                                  <div class="variant-old-price" data-value="{{ variant.compare_at_price | money }}"></div>
+                                  {%- if variant.price < variant.compare_at_price -%}
+                                    <div class="discount-percent" data-value="-{{ variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: product.compare_at_price | round }}%"></div>
+                                  {%- endif -%}
+
+                                  {%- if variant.available and variant.inventory_quantity >= settings.only_x_left -%}
+                                    <span class="in-stock-badge" data-value="{{ 'products.product.availability.in_stock' | t }}"></span>
+                                  {%- elsif variant.available and variant.inventory_quantity < settings.only_x_left -%}
+                                    <span class="only-x-left-badge" data-value="{{ 'products.product.availability.number_left' | t }}"></span>
+                                  {%- else -%}
+                                    <span class="out-of-stock-badge" data-value="{{ 'products.product.availability.out_of_stock' | t }}"></span>
+                                  {%- endif -%}
+                                </div> 
+                              {%- endfor -%} 
+                            </div>
+                          {%- endif -%}
+                          <fieldset class="js product-form-input {% if swatches_options contains option.name %}color-swatch{% endif %}"
+                            data-option-name="{{ option.name }}"
+                          >
+                            <legend>{{ option.name }}</legend>
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                name="{{ option.name }}"
+                                value="{{ value | escape }}"
+                                form="{{ product_form_id }}"
+                                {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                {{ value }}
+                              </label>
+                            {%- endfor -%}
+                          </fieldset>
 												{%- endfor -%}
 												<script type="application/json" data-id="product-options">{{ product.options | json }}</script>
 												<script type="application/json" data-id="product-variants">{{ product.variants | json }}</script>
@@ -635,114 +827,7 @@
 				</div>
 			</div>
 
-			<div class="product-info-description">
-				<div class="product-info-description-content">
-					{% for block in section.blocks %}
-						{% case block.type %}
-							{%- when 'custom_liquid' -%}
-								{% liquid
-									if block.settings.position != "left"
-										continue
-									endif
-
-									assign is_expandable = false
-									if block.settings.title != blank or block.settings.icon != blank
-										assign is_expandable = true
-									endif
-								%}
-								{% capture liquid_output %}{{ block.settings.custom_liquid }}{% endcapture %}
-								{% if liquid_output != blank %}
-									{% if is_expandable %}
-										<collapsible-expandable expanded="{{ block.settings.expanded }}" {{ block.shopify_attributes }}>
-											<div class="facet">
-												<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-													<span>
-														{% if block.settings.icon != blank %}
-															{% render 'icons', icon: block.settings.icon %}
-														{% endif %}
-														{{ block.settings.title }}
-													</span>
-													{% render 'angle', direction: 'down' %}
-												</button>
-									{% else %}
-										<div class="facet facet-standalone" {{ block.shopify_attributes }}>
-									{% endif %}
-
-									<div class="facet-content rte">
-										{{ block.settings.custom_liquid }}
-									</div>
-
-									{% if is_expandable %}
-											</div>
-										</collapsible-expandable>
-									{% else %}
-										</div>
-									{% endif %}
-								{% endif %}
-
-							{% when 'description' %}
-								{% if product.description != blank %}
-									<collapsible-expandable expanded="{{ block.settings.expanded }}">
-										<div class="facet">
-											<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-												<span>
-													{% if block.settings.icon != blank %}
-														{% render 'icons', icon: block.settings.icon %}
-													{% endif %}
-													{{ block.settings.title }}
-												</span>
-												{% render 'angle', direction: 'down' %}
-											</button>
-
-											<div class="facet-content rte">
-												{{ product.description }}
-											</div>
-
-										</div>
-									</collapsible-expandable>
-								{% endif %}
-
-							{% when 'reviews' %}
-								<collapsible-expandable expanded="{{ block.settings.expanded }}" id="product-reviews" class="product-reviews">
-									<div class="facet">
-										<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-											<span>
-												{% render 'icon-star-empty' %}
-												{{ 'products.product.reviews' | t }}
-											</span>
-											{% render 'angle', direction: 'down' %}
-										</button>
-
-										<div class="facet-content">
-											{% render 'product-review-widget', product: product %}
-										</div>
-									</div>
-								</collapsible-expandable>
-
-							{% when 'expandable' %}
-								{% if block.settings.text != blank %}
-									<collapsible-expandable expanded="{{ block.settings.expanded }}">
-										<div class="facet">
-											<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-												<span>
-													{% if block.settings.icon != blank %}
-														{% render 'icons', icon: block.settings.icon %}
-													{% endif %}
-													{{ block.settings.title }}
-												</span>
-												{% render 'angle', direction: 'down' %}
-											</button>
-
-											<div class="facet-content rte">
-												{{ block.settings.text }}
-											</div>
-										</div>
-									</collapsible-expandable>
-								{% endif %}
-						{% endcase %}
-					{% endfor %}
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>

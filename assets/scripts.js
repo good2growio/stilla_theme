@@ -616,6 +616,7 @@ class VariantSelects extends HTMLElement {
 		this.updateOptions();
 		this.updateMasterId();
 		this.toggleAddButton(true, '');
+    this.updateVariantImages();
 
 		this.updatePickupAvailability();
 
@@ -636,6 +637,14 @@ class VariantSelects extends HTMLElement {
 			document.dispatchEvent(event);
 		}
 	}
+
+  updateVariantImages() {
+    document.querySelectorAll("[thumbnail-alt]").forEach(img => img.style.display = "none");
+    const currentImageAlt = this.currentVariant.title;
+    const thumbnailSelector = `[thumbnail-alt="${currentImageAlt}"]`;
+    document.querySelectorAll(thumbnailSelector).forEach(img => img.style.display = "block");
+  }
+  
 
 	updateOptions() {
 		this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
@@ -836,6 +845,8 @@ class VariantSelects extends HTMLElement {
 			this.productData.swatches = JSON.parse(this.querySelector('[type="application/json"][data-id="product-swatches"]').textContent);
 		}
 
+    // console.log(this.productData);
+
 		return this.productData;
 	}
 
@@ -867,6 +878,7 @@ class VariantRadios extends VariantSelects {
 
 	onRadioChange() {
 		this.updateRadiosInFieldset(0);
+    this.updateDescriptions();
 
 		if (this.product.options.length > 1) {
 			this.updateRadiosInFieldset(1);
@@ -881,10 +893,53 @@ class VariantRadios extends VariantSelects {
 		return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value
 	}
 
+  updateDescriptions() {
+    const variantsDescription = document.querySelectorAll('.variant-description');
+    const descriptionValueElement = document.querySelector(".variant-description-value");
+    const variantsInstructions = document.querySelectorAll('.variant-instructions');
+    const instructionsValueElement = document.querySelector(".variant-instructions-value");
+    const variantsNotes = document.querySelectorAll('.variant-notes');
+    const notesValueElement = document.querySelector(".variant-notes-value");
+    const variantsWeights = document.querySelectorAll('.variant-weights');
+    const weightsValueElement = document.querySelector(".variant-weights-value");
+
+    const inputsSku = this.querySelectorAll('input[name="SKU"]');
+    
+    if (inputsSku.length) {      
+
+      inputsSku.forEach(function(inputItem) {
+        if (inputItem.checked) {
+          const inputValue = inputItem.value;
+
+          const changeValue = function(array, element, input) {
+            element.textContent = '';
+            if (array.length) {
+              array.forEach(function(item) {        
+                const variant = item.dataset.variant;
+                const content = item.dataset.value;
+
+                if (variant === input) {   
+                  element.textContent = content; 
+                } 
+              }); 
+            }        
+          };
+
+          changeValue(variantsDescription, descriptionValueElement, inputValue);
+          changeValue(variantsInstructions, instructionsValueElement, inputValue);
+          changeValue(variantsNotes, notesValueElement, inputValue);
+          changeValue(variantsWeights, weightsValueElement, inputValue);
+        }
+    
+      });
+    }
+  }
+
 	updateRadiosInFieldset(selectorIndex) {
 		const selector = this.fieldsets[selectorIndex];
 		const optionName = selector.dataset.optionName;
 		const originalValue = this.getFieldsetCheckedValue(selector);
+    const skuVariants = document.querySelectorAll('.variant-sku');    
 
 		selector.replaceChildren();
 
@@ -898,8 +953,15 @@ class VariantRadios extends VariantSelects {
 			key = value0 + ' / ' + value1;
 		}
 
-		const legend = document.createElement('legend');
-		legend.textContent = optionName;
+    const legend = document.createElement('legend');
+    const oldLegend = document.querySelector('.sku-legend');
+
+    if (oldLegend) {
+      legend.textContent = oldLegend.dataset.value;
+    } else {
+      legend.textContent = optionName;
+    }
+	
 		selector.append(legend);
 
 		const availableOptions = this.optionsMap[key];
@@ -915,9 +977,114 @@ class VariantRadios extends VariantSelects {
 			const id = `${this.dataset.section}-${selectorIndex}-${i}`;
 
 			const newLabel = document.createElement('label');
+      
+      if (skuVariants.length) {
+        const measureTitle = document.querySelector('.measure-title').dataset.value;
+        const skuTitle = document.querySelector('.sku-title').dataset.value;
+
+        skuVariants.forEach(function(item) {
+          const valueData = item.dataset.value;
+          if (valueData === availableOptions[i]) {
+            const variantTitle = item.querySelector('.variant-title');
+            const measureValue = item.querySelector('.measure-value');
+            const packageValue = item.querySelector('.package-title');
+  
+            const oldPrice = item.querySelector('.variant-old-price');
+            const newPrice = item.querySelector('.variant-new-price');
+            const priceDiscount = item.querySelector('.discount-percent');
+  
+            const inStockBadge = item.querySelector('.in-stock-badge');
+            const onlyXLeftBadge = item.querySelector('.only-x-left-badge');
+            const outOfStockBadge = item.querySelector('.out-of-stock-badge');
+  
+            if (variantTitle) {
+              const variantTitleValue = variantTitle.dataset.value;
+              const newVariantTitle = document.createElement('span');
+              newVariantTitle.classList.add('variant-title');
+              newVariantTitle.textContent = variantTitleValue;
+              newLabel.appendChild(newVariantTitle);
+            }
+  
+            const metafieldWrapper = document.createElement('div');
+            metafieldWrapper.classList.add('metafield-wrapper');
+  
+            if (packageValue) {
+              const packageValueData = packageValue.dataset.value;
+              const newPackageValue = document.createElement('span');
+              newPackageValue.textContent = packageValueData;
+              metafieldWrapper.appendChild(newPackageValue);
+            }
+  
+            const newSkuTitle = document.createElement('span');
+            newSkuTitle.textContent = skuTitle + option;
+            
+            metafieldWrapper.appendChild(newSkuTitle);
+            newLabel.appendChild(metafieldWrapper);
+  
+            if (measureValue) {
+              const measureValueData = measureValue.dataset.value;
+              const newMesurement = document.createElement('span');
+              newMesurement.classList.add('measurement');
+              const newMesurementData = document.createElement('span');
+              newMesurementData.textContent = measureValueData
+              newMesurement.textContent = measureTitle;
+              newMesurement.appendChild(newMesurementData);
+              newLabel.appendChild(newMesurement);
+            }
+  
+            const priceWrapper = document.createElement('div');
+            priceWrapper.classList.add('metafield-wrapper');
+  
+            if (newPrice) {
+              const newPriceValue = newPrice.dataset.value;
+              const newNewPrice =document.createElement('span');
+              newNewPrice.classList.add('variant-price');
+              newNewPrice.textContent = newPriceValue;
+              priceWrapper.appendChild(newNewPrice);
+            }
+  
+            if (oldPrice) {
+              const oldPriceValue = oldPrice.dataset.value;
+              const newOldPrice = document.createElement('span');
+              newOldPrice.classList.add('variant-price');
+              newOldPrice.classList.add('old');
+              newOldPrice.textContent = oldPriceValue;
+              priceWrapper.appendChild(newOldPrice);
+            }
+  
+            if (priceDiscount) {
+              const priceDiscountValue = priceDiscount.dataset.value;
+              const newPriceDiscount = document.createElement('span');
+              newPriceDiscount.classList.add('discount-percent');
+              newPriceDiscount.textContent = priceDiscountValue;
+              priceWrapper.appendChild(newPriceDiscount);
+            }
+  
+            newLabel.appendChild(priceWrapper);
+  
+            const badgeWrapper = document.createElement('div');
+            badgeWrapper.classList.add('badge-wrapper');
+            let badgeValue;
+            if (inStockBadge) {
+              badgeValue = ' ';
+            } else if (onlyXLeftBadge) {
+              badgeValue = onlyXLeftBadge.dataset.value;
+            } else {
+              badgeValue = outOfStockBadge.dataset.value;
+            }
+  
+            badgeWrapper.textContent = badgeValue;
+  
+            priceWrapper.appendChild(badgeWrapper);
+            
+            newLabel.value = option;
+            newLabel.htmlFor = id;
+          }        
+        });
+      }
+
 			newLabel.value = option;
 			newLabel.htmlFor = id;
-			newLabel.textContent = option;
 
 			if (this.nodeName === 'VARIANT-RADIOS' && this.productData.swatches?.swatches_on_products && this.productData.swatches?.swatches[option] && this.productData.swatches.swatches_options?.includes(optionName)) {
 				const color = this.productData.swatches.swatches[option].color;
