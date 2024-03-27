@@ -6,6 +6,9 @@
         "header_1": {
           "content": "Colori Primari"
         },
+        "colors_balck": {
+          "label": "Black"
+        },
         "colors_text": {
           "label": "Testo principale"
         },
@@ -143,7 +146,6 @@
         },
         "buttons_shape": {
           "label": "Forma",
-          "info": "Questa impostazione influisce anche sulla forma dei campioni di colore e dei pulsanti di variazione",
           "options": {
             "label_1": "Arrotondato",
             "label_2": "Quadrato",
@@ -156,6 +158,15 @@
             "label_1": "Carattere corpo",
             "label_2": "Carattere dei titoli"
           }
+        }
+      }
+    },
+    "product": {
+      "name": "Product",
+      "settings": {
+        "placeholder": {
+          "label": "Product image placeholder",
+          "info": "Displayed if no image has been uploaded for a product or variant"
         }
       }
     },
@@ -670,24 +681,6 @@
           "label_bc": "In basso al centro",
           "label_br": "In basso a destra"
         }
-      },
-      "heading_size": {
-        "label": "Dimensione titolo",
-        "options": {
-          "label_sm": "Piccola",
-          "label_md": "Normale",
-          "label_lg": "Grande",
-          "label_xl": "Molto grande",
-          "label_xxl": "Molto molto grande"
-        }
-      },
-      "text_size": {
-        "label": "Dimensioni del testo",
-        "options": {
-          "label_sm": "Piccola",
-          "label_md": "Normale",
-          "label_lg": "Grande"
-        }
       }
     },
     "announcement_bar": {
@@ -740,9 +733,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "link_title": {
           "label": "Etichetta del link"
@@ -821,9 +811,6 @@
         "heading": {
           "label": "Titolo"
         },
-        "subheading": {
-          "label": "Sottotitolo"
-        },
         "link_title": {
           "label": "Etichetta del link"
         },
@@ -852,9 +839,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         }
       },
       "blocks": {
@@ -883,9 +867,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "link_title": {
           "label": "Etichetta del link"
@@ -959,9 +940,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "link_title": {
           "label": "Etichetta del link"
@@ -1073,9 +1051,6 @@
         "heading": {
           "label": "Titolo"
         },
-        "subheading": {
-          "label": "Sottotitolo"
-        },
         "link_title": {
           "label": "Etichetta del link"
         },
@@ -1122,9 +1097,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "header_1": {
           "content": "Collezioni"
@@ -1179,9 +1151,6 @@
         "title": {
           "label": "Titolo"
         },
-        "subtitle": {
-          "label": "Sottotitolo"
-        },
         "full_width": {
           "label": "Rendi la sezione a larghezza intera"
         },
@@ -1201,16 +1170,6 @@
         },
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
-        },
-        "heading_alignment": {
-          "label": "Allineamento dell’intestazione",
-          "options": {
-            "label_1": "Sinistra",
-            "label_2": "Centro"
-          }
         }
       },
       "blocks": {
@@ -1245,9 +1204,6 @@
         },
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "products_to_show": {
           "label": "Numero dei prodotti"
@@ -1296,9 +1252,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "product": {
           "label": "Prodottο"
@@ -1538,9 +1491,6 @@
         "heading": {
           "label": "Titolo"
         },
-        "subheading": {
-          "label": "Sottotitolo"
-        },
         "google_maps_api_key": {
           "label": "Chiave API di Google Maps",
           "info": "Per visualizzare la mappa devi abilitare le API sia di [Google Maps](https:\/\/developers.google.com\/maps\/documentation\/javascript\/get-api-key) sia di [Geocoding](https:\/\/developers.google.com\/maps\/documentation\/javascript\/geocoding#GetStarted)."
@@ -1627,9 +1577,6 @@
         },
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "collections": {
           "label": "Collezioni",
@@ -1853,9 +1800,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "link_title": {
           "label": "Etichetta del link"
@@ -2279,9 +2223,6 @@
         "title": {
           "label": "Titolo"
         },
-        "subtitle": {
-          "label": "Sottotitolo"
-        },
         "column_alignment": {
           "label": "Allineamento della colonna",
           "options": {
@@ -2388,9 +2329,6 @@
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "link_title": {
           "label": "Etichetta del link"
@@ -2634,13 +2572,6 @@
             "text_color": {
               "label": "Colore del testo"
             },
-            "content_width": {
-              "label": "% larghezza del contenuto",
-              "info": "Si applica solo al desktop. La larghezza massima (in percentuale) del contenuto della diapositiva."
-            },
-            "buttons_heading": {
-              "label": "Pulsanti"
-            },
             "button_label": {
               "label": "Etichetta del pulsante",
               "info": "Lascia l’etichetta bianca per nascondere il pulsante."
@@ -2655,19 +2586,9 @@
             "link": {
               "label": "Link"
             },
-            "secondary_button_label": {
-              "label": "Etichetta del pulsante secondario",
-              "info": "Lascia l’etichetta vuota per nascondere il pulsante secondario."
-            },
-            "secondary_button_type_link": {
-              "label": "Mostra il pulsante secondario come link di testo"
-            },
-            "secondary_button_color_scheme": {
-              "label": "Combinazione di colori del pulsante secondario",
-              "info": "Si applica quando il pulsante non viene visualizzato come un link."
-            },
-            "secondary_link": {
-              "label": "Link secondario"
+            "content_width": {
+              "label": "% larghezza del contenuto",
+              "info": "Si applica solo al desktop. La larghezza massima (in percentuale) del contenuto della diapositiva."
             },
             "mobile_layout": {
               "label": "Layout dispositivi mobili"
@@ -2679,45 +2600,11 @@
         }
       }
     },
-    "tabbed_content": {
-      "name": "Contenuti a schede",
-      "settings": {
-        "heading": {
-          "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
-        }
-      },
-      "blocks": {
-        "tab": {
-          "name": "Tab",
-          "settings": {
-            "heading": {
-              "label": "Etichetta della scheda"
-            },
-            "content": {
-              "label": "Contenuto"
-            },
-            "page": {
-              "label": "Pagina",
-              "info": "Se si seleziona una pagina, questa sovrascriverà l’impostazione dei contenuti della scheda."
-            }
-          }
-        }
-      },
-      "preset": {
-        "name": "Contenuti a schede"
-      }
-    },
     "testimonials": {
       "name": "Testimonial",
       "settings": {
         "heading": {
           "label": "Titolo"
-        },
-        "subheading": {
-          "label": "Sottotitolo"
         },
         "call_to_action": {
           "label": "Testo di invito all’azione"
@@ -2749,9 +2636,6 @@
         "heading": {
           "label": "Titolo"
         },
-        "subheading": {
-          "label": "Sottotitolo"
-        },
         "cover_image": {
           "label": "Immagine di copertina"
         },
@@ -2770,56 +2654,6 @@
       },
       "presets": {
         "name": "Video"
-      }
-    },
-    "video_background": {
-      "name": "Sfondo video",
-      "settings": {
-        "full_width": {
-          "label": "Rendi la sezione a larghezza intera"
-        },
-        "height": {
-          "label": "Altezza",
-          "options": {
-            "label_2": "Piccola",
-            "label_3": "Medio",
-            "label_4": "Grande"
-          }
-        },
-        "background_image": {
-          "label": "Immagine di sfondo"
-        },
-        "heading": {
-          "label": "Titolo"
-        },
-        "text": {
-          "label": "Descrizione"
-        },
-        "button_label": {
-          "label": "Etichetta del pulsante"
-        },
-        "button_link": {
-          "label": "Pulsante del link"
-        },
-        "header_1": {
-          "content": "Video"
-        },
-        "custom_video": {
-          "label": "Video autogestito",
-          "info": "Il video autogestito avrà la priorità rispetto all’URL esterno"
-        },
-        "video_url": {
-          "label": "URL esterno (YouTube, Vimeo)",
-          "placeholder": "Usa un URL di Youtube o Vimeo",
-          "info": "Il video viene riprodotto sulla pagina."
-        },
-        "video_description": {
-          "label": "Descrizione del video",
-          "info": "Descrivi il video per renderlo accessibile ai clienti utilizzando utilità per la lettura dello schermo."
-        }
-      },
-      "presets": {
-        "name": "Sfondo video"
       }
     }
   }

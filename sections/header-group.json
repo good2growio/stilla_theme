@@ -5,14 +5,14 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "text": "Promote discounts in this area",
+        "text": "Spedizione gratuita da 49€",
         "link": "",
         "menu": "",
         "show_social": false,
         "color_scheme": "accent-3",
         "remove_border": true,
-        "spacing_top": 1.3,
-        "spacing_bottom": 1.3
+        "spacing_top": 1.5,
+        "spacing_bottom": 1.5
       }
     },
     "header": {
@@ -21,10 +21,10 @@
         "05f87a08-9647-4518-b9ed-a81663dd1d16": {
           "type": "megamenu",
           "settings": {
-            "menu_item": "Prodotti",
-            "side_title": "Titolo categoria",
+            "menu_item": "Risparmio acqua in bagno",
+            "side_title": "",
             "side_text": "",
-            "side_url": "shopify:\/\/collections",
+            "side_url": "",
             "side_position": "right"
           }
         }
@@ -53,8 +53,8 @@
         "navigation_remove_border": false,
         "navigation_submenu_color_scheme": "background-1",
         "mobile_navigation_color_scheme": "background-1",
-        "spacing_top": 3.5,
-        "spacing_bottom": 3.5
+        "spacing_top": 3.6,
+        "spacing_bottom": 1
       }
     },
     "announcement-bar-secondary": {

@@ -32,10 +32,10 @@
 	<div class="badge-stock badge-preorder">
 		<span class="badge-stock-dot"></span> {{ 'products.product.availability.pre_order' | t }}
 	</div>
-{% elsif always_in_stock %}
-	<div class="badge-stock badge-stock-in">
+{% comment %} {% elsif always_in_stock %}
+	<div class="badge-stock badge-discount">
 		<span class="badge-stock-dot"></span> {{ 'products.product.availability.always_in_stock' | t }}
-	</div>
+	</div> {% endcomment %}
 {% else %}
 	{% if product.available == false or inventory_count == 0 %}
 		<div class="badge-stock badge-stock-out">
@@ -47,10 +47,12 @@
 				<span class="badge-stock-dot"></span> {{ 'products.product.availability.number_left' | t: count: inventory_count }}
 			</div>
 		{% else %}
-			<div class="badge-stock badge-stock-in">
-				<span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
-				{% if settings.show_items_in_stock %} ({{ inventory_count }}) {% endif %}
-			</div>
+      {% if card_product.compare_at_price > card_product.price %}
+        <div class="badge-stock badge-discount">
+          <span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
+          {% if settings.show_items_in_stock %} ({{ inventory_count }}) {% endif %}
+        </div>
+      {% endif  %}			
 		{% endif %}
 	{% endif %}
 {% endif %}

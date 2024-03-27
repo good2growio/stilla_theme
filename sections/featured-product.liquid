@@ -62,16 +62,9 @@
 <div class="color-{{ section.settings.color_scheme }}">
 	<div class="container {% if product.media.size == 0 %}container-narrow{% endif %}">
 		<div class="{{ block_section_class }}">
-			{% if section.settings.heading != blank or section.settings.subheading != blank %}
+			{% if section.settings.heading != blank %}
 				<div class="block-block-section-title-wrapper">
-					<div class="block-section-title-wrap">
-						{% if section.settings.heading != blank %}
-							<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-						{% endif %}
-						{% if section.settings.subheading != blank %}
-							<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-						{% endif %}
-					</div>
+					<h2 class="block-section-title">{{ section.settings.heading }}</h2>
 				</div>
 			{% endif %}
 
@@ -800,11 +793,6 @@
       "type": "text",
       "id": "heading",
       "label": "t:sections.featured_product.settings.heading.label"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.featured_product.settings.subheading.label"
     },
     {
       "type": "product",

@@ -2,7 +2,7 @@
   {
     "name": "theme_info",
     "theme_name": "Athens",
-    "theme_version": "2.1.0",
+    "theme_version": "2.0.0",
     "theme_author": "Truly Fine Pixels",
     "theme_documentation_url": "https:\/\/trulyfinepixels.com\/sections\/athens",
     "theme_support_url": "https:\/\/trulyfinepixels.com\/support-form"
@@ -13,6 +13,30 @@
       {
         "type": "header",
         "content": "t:settings_schema.colors.settings.header_1.content"
+      },
+      {
+        "type": "color",
+        "id": "colors_black",
+        "label": "Black",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "id": "colors_dark",
+        "label": "Dark",
+        "default": "#102421"
+      },
+      {
+        "type": "color",
+        "id": "colors_gray",
+        "label": "Gray",
+        "default": "#777"
+      },
+      {
+        "type": "color",
+        "id": "colors_green",
+        "label": "Green",
+        "default": "#5A822C"
       },
       {
         "type": "color",
@@ -140,19 +164,37 @@
         "type": "color",
         "id": "color_badge_instock",
         "label": "t:settings_schema.colors.settings.color_badge_instock.label",
-        "default": "#337239"
+        "default": "#5A822C"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_instock",
+        "label": "In stock badge background",
+        "default": "#ECF3E4"
       },
       {
         "type": "color",
         "id": "color_badge_limitedstock",
         "label": "t:settings_schema.colors.settings.color_badge_limitedstock.label",
-        "default": "#bd6b1b"
+        "default": "#BC6310"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_limitedstock",
+        "label": "Limited stock badge background",
+        "default": "#F5E2CE"
       },
       {
         "type": "color",
         "id": "color_badge_outofstock",
         "label": "t:settings_schema.colors.settings.color_badge_outofstock.label",
-        "default": "#922C2C"
+        "default": "#D1191C"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_badge_outofstock",
+        "label": "Out of stock badge background",
+        "default": "#F4C6C6"
       },
       {
         "type": "color",
@@ -274,7 +316,6 @@
         "type": "select",
         "id": "buttons_shape",
         "label": "t:settings_schema.buttons.settings.buttons_shape.label",
-        "info": "t:settings_schema.buttons.settings.buttons_shape.info",
         "default": "rounded",
         "options": [
           {
@@ -306,6 +347,17 @@
             "label": "t:settings_schema.buttons.settings.buttons_font.options.label_2"
           }
         ]
+      }
+    ]
+  },
+  {
+    "name": "t:settings_schema.product.name",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "placeholder",
+        "label": "Product image placeholder",
+        "info": "Displayed if no image has been uploaded for a product or variant"
       }
     ]
   },

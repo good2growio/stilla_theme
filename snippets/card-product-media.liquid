@@ -144,9 +144,11 @@
 				<div class="card-footer-intro {% if settings.products_hide_empty_star_rating %}product-rating-hide-empty{% endif %}">
 					{% render 'price', product: card_product, discount_badge: false %}
 
-					<div class="badge-stock badge-stock-in">
-						<span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
-					</div>
+					{% if card_product.compare_at_price > card_product.price %}
+            <div class="badge-stock badge-discount">
+              <span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
+            </div> 
+          {% endif  %}
 
 					{%- if show_rating -%}
 						{% render 'rating', product: card_product %}

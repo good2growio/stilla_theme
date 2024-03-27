@@ -37,10 +37,10 @@
 		assign block_section_class = block_section_class | append: ' block-section-padded'
 	endunless
 
-	assign mobile_two_columns = false
-	if settings.products_two_column_mobile and section.settings.stack_on_mobile
-		assign mobile_two_columns = true
-	endif
+  assign mobile_two_columns = false
+  if settings.products_two_column_mobile and section.settings.stack_on_mobile
+    assign mobile_two_columns = true
+  endif
 %}
 
 <style>
@@ -75,17 +75,10 @@
 	<div class="container">
 		<div class="{{ block_section_class }}">
 			<div class="block-pill-nav-slider">
-				{% if section.settings.heading != blank or section.settings.subheading != blank or section.blocks.size > 0 %}
+				{% if section.settings.heading != blank or section.blocks.size > 0 %}
 					<div class="block-block-section-title-wrapper">
-						{% if section.settings.heading != blank or section.settings.subheading != blank %}
-							<div class="block-section-title-wrap">
-								{% if section.settings.heading != blank %}
-									<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-								{% endif %}
-								{% if section.settings.subheading != blank %}
-									<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-								{% endif %}
-							</div>
+						{% if section.settings.heading != blank %}
+							<h2 class="block-section-title">{{ section.settings.heading }}</h2>
 						{% endif %}
 
 						{% if section.blocks.size > 0 %}
@@ -96,7 +89,7 @@
 											{% assign collection = block.settings.collection %}
 											<a href="{{ collection.url }}"
 												class="pill-nav-item {% if forloop.index0 == 0 %}is-active{% endif %} color-background-1"
-												data-handle="{{ block.settings.collection.handle }}-{{ forloop.index0 }}"
+												data-collection-handle="{{ block.settings.collection.handle }}-{{ forloop.index0 }}"
 												{{ block.shopify_attributes }}
 											>
 												{% if block.settings.collection_tab_label != blank %}
@@ -120,6 +113,7 @@
 						{% for block in section.blocks %}
 							<div class="tabs-component-content" data-handle="{{ block.settings.collection.handle }}-{{ forloop.index0 }}"
 								aria-hidden="{% if forloop.index0 != 0 %}true{% else %}false{% endif %}"
+								{{ block.shopify_attributes }}
 							>
 
 							{%- if section.settings.layout == 'slider' -%}
@@ -139,7 +133,7 @@
 													show_vendor: section.settings.show_vendor,
 													show_stock: section.settings.show_stock,
 													show_rating: section.settings.show_rating,
-													show_add_to_cart: settings.products_show_add_to_cart,
+													show_add_to_cart: section.settings.show_add_to_cart,
 													class: 'color-background-1',
 													mobile_two_columns: mobile_two_columns,
 													event_context: 'CollectionTabsSection'
@@ -153,7 +147,7 @@
 														show_vendor: section.settings.show_vendor,
 														show_stock: section.settings.show_stock,
 														show_rating: section.settings.show_rating,
-														show_add_to_cart: settings.products_show_add_to_cart,
+														show_add_to_cart: section.settings.show_add_to_cart,
 														class: 'color-background-1',
 														mobile_two_columns: mobile_two_columns,
 														event_context: 'CollectionTabsSection'
@@ -167,7 +161,7 @@
 															show_vendor: section.settings.show_vendor,
 															show_stock: section.settings.show_stock,
 															show_rating: section.settings.show_rating,
-															show_add_to_cart: settings.products_show_add_to_cart,
+															show_add_to_cart: section.settings.show_add_to_cart,
 															class: 'color-background-1',
 															mobile_two_columns: mobile_two_columns,
 															event_context: 'CollectionTabsSection'
@@ -195,6 +189,7 @@
 													<span class="visually-hidden">{{ 'sections.slideshow.next_slide' | t }}</span>
 													{% render 'angle', direction: 'right' %}
 												</button>
+                        
 											</div>
 										</div>
 									</carousel-navigation>
@@ -227,11 +222,6 @@
       "default": "Collection Tabs"
     },
     {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.collection_tabs.settings.subheading.label"
-    },
-    {
       "type": "header",
       "content": "t:sections.collection_tabs.settings.header_1.content"
     },
@@ -262,6 +252,12 @@
       "default": false,
       "label": "t:sections.collection_tabs.settings.show_rating.label",
       "info": "t:sections.collection_tabs.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "default": false,
+      "label": "Show add to cart"
     },
     {
       "type": "header",

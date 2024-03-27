@@ -128,7 +128,11 @@
         "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"{{ class }}\">{{ location_name }}<\/span>",
         "unavailable": "Couldn't load pickup availability",
         "refresh": "Refresh"
-      }
+      },
+      "variants_title": "Variants",
+      "sku_title": "Code: ",
+      "measure_title": "Measures: ",
+      "package_title": "Package: "
     },
     "facets": {
       "mobile_drawer_title": "Filter products",
@@ -142,8 +146,7 @@
       "clear_all": "Clear all",
       "clear_filters": "Clear filters",
       "filters_label": "Filters",
-      "sort_by_label": "Sort by:",
-      "filter_and_operator_subtitle": "Match all"
+      "sort_by_label": "Sort by:"
     }
   },
   "blogs": {

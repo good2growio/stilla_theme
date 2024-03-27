@@ -120,27 +120,13 @@
 											if swatches_options contains filter.label and settings.swatches_on_filters
 												assign is_swatch = true
 											endif
-
-											assign is_visual_display = false
-											if filter.presentation == 'swatch'
-												assign is_visual_display = true
-											endif
 										%}
-										<div class="facet-content {% if is_swatch or is_visual_display %}color-swatch{% endif %}">
+										<div class="facet-content {% if is_swatch %}color-swatch{% endif %}">
 											<ul
 												class="facet-options-list"
 												aria-expanded="{% if enabled_filter_values <= 10 or filter.active_values.size > 0 or is_swatch %}true{% else %}false{% endif %}"
 											>
-												{%- liquid
-													assign sorted_values = filter.values
-													# Keep the selected values grouped together when operator is AND
-													if filter.operator == 'AND'
-														assign active_filter_values = filter.values | where: 'active', true
-														assign inactive_filter_values = filter.values | where: 'active', false
-														assign sorted_values = active_filter_values | concat: inactive_filter_values
-													endif
-												-%}
-												{%- for value in sorted_values -%}
+												{%- for value in filter.values -%}
 													<li class="facet-options-list-item">
 														<span class="checkbox-facet {% if value.count == 0 and value.active == false %}checkbox-facet-disabled {% if hide_empty_filters %}visually-hidden{% endif %}{% endif %}">
 															<label for="filter-{{ filter.label | escape }}-{{ forloop.index }}" class="checkbox-facet-label"
@@ -158,17 +144,6 @@
 																		{% endif %}
 																	{% endif %}
 																{% endfor %}
-
-																{% if is_visual_display %}
-																	data-tooltip="{{ value.label }}"
-															   {% if value.display.type == 'image' %}
-																   data-image="{{ value.display.value }}"
-																   style="background-image: url({{ value.display.value | image_url: width: 80 }})"
-															   {% else %}
-																   data-color="{{ value.display.value }}"
-																   style="background-color: {{ value.display.value }}"
-															   {% endif %}
-																{% endif %}
 															>
 																<input type="checkbox"
 																	id="filter-{{ filter.label | escape }}-{{ forloop.index }}"
@@ -182,7 +157,7 @@
 																<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 																	<path d="M17.5303 9.53033C17.8232 9.23744 17.8232 8.76256 17.5303 8.46967C17.2374 8.17678 16.7626 8.17678 16.4697 8.46967L17.5303 9.53033ZM9.99998 16L9.46965 16.5304C9.76255 16.8232 10.2374 16.8232 10.5303 16.5303L9.99998 16ZM7.53027 12.4697C7.23737 12.1768 6.7625 12.1768 6.46961 12.4697C6.17671 12.7626 6.17672 13.2374 6.46961 13.5303L7.53027 12.4697ZM16.4697 8.46967L9.46965 15.4697L10.5303 16.5303L17.5303 9.53033L16.4697 8.46967ZM6.46961 13.5303L9.46965 16.5304L10.5303 15.4697L7.53027 12.4697L6.46961 13.5303Z" />
 																</svg>
-																<span class="checkbox-facet-label-text">{{ value.label | escape }} {{ value.display.value }}</span>
+																<span class="checkbox-facet-label-text">{{ value.label | escape }}</span>
 																<span class="checkbox-facet-label-count">
 																	{{ value.count }}
 																</span>
@@ -193,7 +168,7 @@
 											</ul>
 
 											{% unless is_swatch %}
-												{% if filter.active_values.size > 0 or enabled_filter_values > 10 or filter.operator == 'AND' %}
+												{% if filter.active_values.size > 0 or enabled_filter_values > 10 %}
 													<div class="facet-content-footer">
 														{% if enabled_filter_values > 10 %}
 															<button
@@ -208,20 +183,10 @@
 																{% endif %}
 															</button>
 														{% endif %}
-
-														{% if filter.active_values.size > 0 or filter.operator == 'AND' %}
-															<div class="facet-content-footer-end">
-																{% if filter.operator == 'AND' %}
-																	<span class="filter-content-operator-label">
-																		{{ 'products.facets.filter_and_operator_subtitle' | t }}
-																	</span>
-																{% endif %}
-																{% if filter.active_values.size > 0 %}
-																	<facet-remove>
-																		<a href="{{ filter.url_to_remove }}" class="facet-link-reset button-text-link">{{ 'products.facets.reset' | t }}</a>
-																	</facet-remove>
-																{% endif %}
-															</div>
+														{% if filter.active_values.size > 0 %}
+															<facet-remove>
+																<a href="{{ filter.url_to_remove }}" class="facet-link-reset button-text-link">{{ 'products.facets.reset' | t }}</a>
+															</facet-remove>
 														{% endif %}
 													</div>
 												{% endif %}

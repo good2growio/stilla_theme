@@ -1,30 +1,17 @@
 document.addEventListener('shopify:block:select', function (event) {
-	// Slideshow
 	const blockSelectedIsSlide = event.target.classList.contains('slideshow-slide');
-	if (blockSelectedIsSlide) {
-		const parentSlideshowComponent = event.target.closest('slideshow-component');
-		parentSlideshowComponent.flickity.stopPlayer();
-
-		const slideIndex = [...event.target.parentElement.childNodes].indexOf(event.target);
-
-		setTimeout(function () {
-			parentSlideshowComponent.flickity.select(slideIndex);
-		}, 200);
-
+	if (!blockSelectedIsSlide) {
 		return;
 	}
 
-	// Tabbed content
-	const blockSelectedIsTabs = !!event.target.closest('tabs-navigation');
-	if (blockSelectedIsTabs) {
-		const parentTabsNavigation = event.target.closest('tabs-navigation');
+	const parentSlideshowComponent = event.target.closest('slideshow-component');
+	parentSlideshowComponent.flickity.stopPlayer();
 
-		if (parentTabsNavigation) {
-			parentTabsNavigation?.setActiveTab?.(event.target);
-		}
+	const slideIndex = [...event.target.parentElement.childNodes].indexOf(event.target);
 
-		return;
-	}
+	setTimeout(function () {
+		parentSlideshowComponent.flickity.select(slideIndex);
+	}, 200);
 });
 
 document.addEventListener('shopify:block:deselect', function (event) {

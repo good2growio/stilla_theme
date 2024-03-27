@@ -50,9 +50,9 @@
 		<div class="{{ block_section_class }}">
 			<div class="newsletter">
 				<div class="newsletter-content">
-					<span class="newsletter-icon">
+					{% comment %} <span class="newsletter-icon">
 						{% render 'icon-email' %}
-					</span>
+					</span> {% endcomment %}
 					{% if section.settings.title != blank or section.settings.text != blank %}
 						<div>
 							{% if section.settings.title != blank %}

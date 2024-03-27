@@ -143,7 +143,6 @@
         },
         "buttons_shape": {
           "label": "Vorm",
-          "info": "Deze instelling heeft ook gevolgen voor de vorm van kleurpaletten en variatieknoppen",
           "options": {
             "label_1": "Afgerond",
             "label_2": "Vierkant",
@@ -670,24 +669,6 @@
           "label_bc": "Middenonder",
           "label_br": "Rechtsonder"
         }
-      },
-      "heading_size": {
-        "label": "Grootte van de koptekst",
-        "options": {
-          "label_sm": "Klein",
-          "label_md": "Normaal",
-          "label_lg": "Groot",
-          "label_xl": "Extra groot",
-          "label_xxl": "Extra groot-badge"
-        }
-      },
-      "text_size": {
-        "label": "Tekstgrootte",
-        "options": {
-          "label_sm": "Klein",
-          "label_md": "Normaal",
-          "label_lg": "Groot"
-        }
       }
     },
     "announcement_bar": {
@@ -740,9 +721,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "link_title": {
           "label": "Linklabel"
@@ -821,9 +799,6 @@
         "heading": {
           "label": "Koptekst"
         },
-        "subheading": {
-          "label": "Subkop"
-        },
         "link_title": {
           "label": "Linklabel"
         },
@@ -852,9 +827,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         }
       },
       "blocks": {
@@ -883,9 +855,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "link_title": {
           "label": "Linklabel"
@@ -959,9 +928,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "link_title": {
           "label": "Linklabel"
@@ -1073,9 +1039,6 @@
         "heading": {
           "label": "Koptekst"
         },
-        "subheading": {
-          "label": "Subkop"
-        },
         "link_title": {
           "label": "Linklabel"
         },
@@ -1122,9 +1085,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "header_1": {
           "content": "Collecties"
@@ -1179,9 +1139,6 @@
         "title": {
           "label": "Koptekst"
         },
-        "subtitle": {
-          "label": "Subkop"
-        },
         "full_width": {
           "label": "Maak sectie volledige breedte"
         },
@@ -1201,16 +1158,6 @@
         },
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
-        },
-        "heading_alignment": {
-          "label": "Uitlijning van koppen",
-          "options": {
-            "label_1": "Links",
-            "label_2": "Gecentreerd"
-          }
         }
       },
       "blocks": {
@@ -1245,9 +1192,6 @@
         },
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "products_to_show": {
           "label": "Aantal producten"
@@ -1296,9 +1240,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "product": {
           "label": "Product"
@@ -1538,9 +1479,6 @@
         "heading": {
           "label": "Koptekst"
         },
-        "subheading": {
-          "label": "Subkop"
-        },
         "google_maps_api_key": {
           "label": "Google Maps API-sleutel",
           "info": "Je moet zowel de API’s[Google Maps](https:\/\/developers.google.com\/maps\/documentation\/javascript\/get-api-key) als [Geocoding](https:\/\/developers.google.com\/maps\/documentation\/javascript\/geocoding#GetStarted) inschakelen om de kaart weer te geven."
@@ -1627,9 +1565,6 @@
         },
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "collections": {
           "label": "Collecties",
@@ -1853,9 +1788,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "link_title": {
           "label": "Linklabel"
@@ -2279,9 +2211,6 @@
         "title": {
           "label": "Koptekst"
         },
-        "subtitle": {
-          "label": "Subkop"
-        },
         "column_alignment": {
           "label": "Uitlijning kolommen",
           "options": {
@@ -2388,9 +2317,6 @@
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "link_title": {
           "label": "Linklabel"
@@ -2634,13 +2560,6 @@
             "text_color": {
               "label": "Tekstkleur"
             },
-            "content_width": {
-              "label": "Contentbreedte %",
-              "info": "Alleen van toepassing op de desktop. De maximum breedte (in percentage) van de content van de dia."
-            },
-            "buttons_heading": {
-              "label": "Knoppen"
-            },
             "button_label": {
               "label": "Knoplabel",
               "info": "Laat het label leeg om de knop te verbergen."
@@ -2655,19 +2574,9 @@
             "link": {
               "label": "Link"
             },
-            "secondary_button_label": {
-              "label": "Secundair knoplabel",
-              "info": "Laat het label leeg om de secundaire knop te verbergen."
-            },
-            "secondary_button_type_link": {
-              "label": "Secundaire knop als tekstlink weergeven"
-            },
-            "secondary_button_color_scheme": {
-              "label": "Kleurschema secundaire knop",
-              "info": "Geldt wanneer de knop niet als link wordt weergegeven."
-            },
-            "secondary_link": {
-              "label": "Secundaire link"
+            "content_width": {
+              "label": "Contentbreedte %",
+              "info": "Alleen van toepassing op de desktop. De maximum breedte (in percentage) van de content van de dia."
             },
             "mobile_layout": {
               "label": "Mobiele lay-out"
@@ -2679,45 +2588,11 @@
         }
       }
     },
-    "tabbed_content": {
-      "name": "Inhoud op tabbladen",
-      "settings": {
-        "heading": {
-          "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
-        }
-      },
-      "blocks": {
-        "tab": {
-          "name": "Tabblad",
-          "settings": {
-            "heading": {
-              "label": "Tablabel"
-            },
-            "content": {
-              "label": "Content"
-            },
-            "page": {
-              "label": "Pagina",
-              "info": "Als er een pagina wordt geselecteerd, wordt de instelling voor tabbladinhoud overschreven."
-            }
-          }
-        }
-      },
-      "preset": {
-        "name": "Inhoud op tabbladen"
-      }
-    },
     "testimonials": {
       "name": "Testimonials",
       "settings": {
         "heading": {
           "label": "Koptekst"
-        },
-        "subheading": {
-          "label": "Subkop"
         },
         "call_to_action": {
           "label": "Tekst van Call to Action"
@@ -2749,9 +2624,6 @@
         "heading": {
           "label": "Koptekst"
         },
-        "subheading": {
-          "label": "Subkop"
-        },
         "cover_image": {
           "label": "Coverafbeelding"
         },
@@ -2770,56 +2642,6 @@
       },
       "presets": {
         "name": "Video"
-      }
-    },
-    "video_background": {
-      "name": "Video-achtergrond",
-      "settings": {
-        "full_width": {
-          "label": "Maak sectie volledige breedte"
-        },
-        "height": {
-          "label": "Hoogte",
-          "options": {
-            "label_2": "Klein",
-            "label_3": "Medium",
-            "label_4": "Groot"
-          }
-        },
-        "background_image": {
-          "label": "Achtergrondafbeelding"
-        },
-        "heading": {
-          "label": "Koptekst"
-        },
-        "text": {
-          "label": "Omschrijving"
-        },
-        "button_label": {
-          "label": "Knoplabel"
-        },
-        "button_link": {
-          "label": "Knoplink"
-        },
-        "header_1": {
-          "content": "Video"
-        },
-        "custom_video": {
-          "label": "Zelfgehoste video",
-          "info": "De zelfgehoste video gaat voor op de externe URL"
-        },
-        "video_url": {
-          "label": "Externe URL (YouTube, Vimeo)",
-          "placeholder": "Gebruik een YouTube- of Vimeo-URL",
-          "info": "Video wordt op de pagina afgespeeld."
-        },
-        "video_description": {
-          "label": "Video-beschrijving",
-          "info": "Beschrijf de video om deze toegankelijk te maken voor klanten met behulp van schermlezers."
-        }
-      },
-      "presets": {
-        "name": "Video-achtergrond"
       }
     }
   }

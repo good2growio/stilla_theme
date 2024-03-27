@@ -22,9 +22,11 @@
 		<span class="badge-stock-dot"></span> <span class="js-stock-text">{{ 'products.product.availability.pre_order' | t }}</span>
 	</div>
 {% elsif variant.inventory_policy == 'continue' or variant.inventory_management == null %}
-	<div class="badge-stock badge-stock-in">
-		<span class="badge-stock-dot"></span> <span class="js-stock-text">{{ 'products.product.availability.always_in_stock' | t }}</span>
-	</div>
+{% if product.compare_at_price > product.price %}
+  <div class="badge-stock badge-discount">
+    <span class="badge-stock-dot"></span> {{ 'products.product.availability.in_stock' | t }}
+  </div>
+{% endif  %}
 {% else %}
 	{% if variant.available == false %}
 		<div class="badge-stock badge-stock-out">
@@ -36,13 +38,15 @@
 				<span class="badge-stock-dot"></span> <span class="js-stock-text">{{ 'products.product.availability.number_left' | t: count: variant.inventory_quantity }}</span>
 			</div>
 		{% else %}
-			<div class="badge-stock badge-stock-in">
-				<span class="badge-stock-dot"></span>
-					<span class="js-stock-text">
-						{{ 'products.product.availability.in_stock' | t }}
-						{% if settings.show_items_in_stock %} - {{ 'products.product.availability.number_available' | t: count: variant.inventory_quantity }}{% endif %}
-					</span>
-			</div>
+      {% if product.compare_at_price > product.price %}
+        <div class="badge-stock badge-discount">
+          <span class="badge-stock-dot"></span>
+            <span class="js-stock-text">
+              {{ 'products.product.availability.in_stock' | t }}
+              {% if settings.show_items_in_stock %} - {{ 'products.product.availability.number_available' | t: count: variant.inventory_quantity }}{% endif %}
+            </span>
+        </div>
+      {% endif  %}			
 		{% endif %}
 	{% endif %}
 {% endif %}

@@ -15,19 +15,19 @@
 			assign block_section_class = block_section_class | append: ' block-section-padded'
 		endunless
 
-		assign layout_classes = 'grid'
-		case recommendations.products_count
-			when 1
-				assign layout_classes = layout_classes | append: ' grid-1-col grid-2-col-tablet grid-4-col-desktop'
-			when 2
-				assign layout_classes = layout_classes | append: ' grid-2-col-tablet grid-4-col-desktop'
-			when 3
-				assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-3-col-desktop'
-			when 4
-				assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-4-col-desktop'
-			when 5
-				assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-5-col-desktop grid-compact'
-		endcase
+    assign layout_classes = 'grid'
+    case recommendations.products_count
+      when 1
+        assign layout_classes = layout_classes | append: ' grid-1-col grid-2-col-tablet grid-4-col-desktop'
+      when 2
+        assign layout_classes = layout_classes | append: ' grid-2-col-tablet grid-4-col-desktop'
+      when 3
+        assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-3-col-desktop'
+      when 4
+        assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-4-col-desktop'
+      when 5
+        assign layout_classes = layout_classes | append: ' grid-3-col-tablet grid-5-col-desktop grid-compact'
+    endcase
 	%}
 
 	<style>

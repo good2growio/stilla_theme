@@ -1,0 +1,109 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "collection_description_fullwidth": false,
+        "overlay_opacity": 80,
+        "color_scheme": "background-1"
+      }
+    },
+    "subcollections": {
+      "type": "main-collection-subcollections",
+      "settings": {
+        "image_ratio": "square",
+        "show_title": true,
+        "show_product_size": true,
+        "layout": "slider",
+        "columns": 6,
+        "stack_on_mobile": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 24,
+        "desktop_product_columns": "4",
+        "enable_filtering": true,
+        "show_product_count": true,
+        "enable_sorting": true,
+        "hide_empty_filters": false,
+        "filters_bar_sticky": false,
+        "filters_bar_color_scheme": "background-2",
+        "show_vendor": false,
+        "show_stock": true,
+        "show_rating": false,
+        "side_menu_title": "Collections",
+        "side_menu": ""
+      }
+    },
+    "featured_collection_zrM4je": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "risparmio-acqua-in-bagno",
+        "products_to_show": 3,
+        "products": [
+
+        ],
+        "heading": "Da non perdere",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_add_to_cart": false,
+        "show_rating": false,
+        "show_collection": true,
+        "collection_overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+        "collection_title": "",
+        "collection_description": "",
+        "collection_text_color": "#ffffff",
+        "collection_button_text": "",
+        "collection_box_align": "bottom-left",
+        "layout": "grid",
+        "columns": "4",
+        "stack_on_mobile": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "featured_collection_itkfLA": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products_to_show": 3,
+        "products": [
+          "1000-ml-cyclon-nuova-pasta-lavamani-119259",
+          "2-bulloni-ad-l-con-tassello-108174",
+          "2-bulloni-mm10-dadi-ranelle-tasselli-c101641"
+        ],
+        "heading": "Prodotti top",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_add_to_cart": false,
+        "show_rating": false,
+        "show_collection": true,
+        "collection_overlay_background": "linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8) 100%)",
+        "collection_title": "",
+        "collection_description": "",
+        "collection_text_color": "#fff",
+        "collection_button_text": "",
+        "collection_box_align": "bottom-left",
+        "layout": "grid",
+        "columns": "4",
+        "stack_on_mobile": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "subcollections",
+    "product-grid",
+    "featured_collection_zrM4je",
+    "featured_collection_itkfLA"
+  ]
+}

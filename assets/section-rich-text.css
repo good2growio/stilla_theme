@@ -14,26 +14,8 @@
   text-align: center;
 }
 
-.section-rich-text > * {
+.section-rich-text .rich-text-text,
+.section-rich-text .page-content,
+.section-rich-text .button {
   margin-top: var(--spacing-base-1);
-  margin-bottom: var(--spacing-base-1);
-}
-
-.section-rich-text .button {
-  display: inline-block;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.section-rich-text > :first-child {
-  margin-top: 0;
-}
-
-.section-rich-text > :last-child {
-  margin-bottom: 0;
-}
-
-.section-rich-text .button {
-  margin-left: calc(var(--spacing-base-1) / 4);
-  margin-right: calc(var(--spacing-base-1) / 4);
 }

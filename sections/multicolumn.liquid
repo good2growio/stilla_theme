@@ -38,19 +38,14 @@
 <div class="color-{{ section.settings.color_scheme }}">
 	<div class="container">
 		<div class="{{ block_section_class }}">
-			<div class="multicolumn">
-				{% if section.settings.title != blank or section.settings.subtitle != blank %}
+			<div class="multicolumn {% if section.settings.title == blank %} no-heading{% endif %}">
+				{%- if section.settings.title != blank -%}
 					<div class="block-block-section-title-wrapper">
-						<div class="block-section-title-wrap">
-							{% if section.settings.title != blank %}
-								<h2 class="block-section-title">{{ section.settings.title }}</h2>
-							{% endif %}
-							{% if section.settings.subtitle != blank %}
-								<p class="block-section-subtitle">{{ section.settings.subtitle }}</p>
-							{% endif %}
-						</div>
+						<h2 class="block-section-title">
+							{{ section.settings.title | escape }}
+						</h2>
 					</div>
-				{% endif %}
+				{%- endif -%}
 
 				<ul class="multicolumn-list grid grid-1-col grid-2-col-tablet grid-{{ section.settings.columns }}-col-desktop" role="list">
 					{%- for block in section.blocks -%}
@@ -130,11 +125,6 @@
       "id": "title",
       "default": "Multicolumn",
       "label": "t:sections.multicolumn.settings.title.label"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "t:sections.multicolumn.settings.subtitle.label"
     },
     {
       "type": "range",

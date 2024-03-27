@@ -142,8 +142,7 @@
       "clear_all": "Καθαρισμός όλων",
       "clear_filters": "Καθαρισμός φίλτρων",
       "filters_label": "Φίλτρα",
-      "sort_by_label": "Ταξινόμηση ανά:",
-      "filter_and_operator_subtitle": "Αντιστοιχεί με όλα"
+      "sort_by_label": "Ταξινόμηση ανά:"
     }
   },
   "blogs": {

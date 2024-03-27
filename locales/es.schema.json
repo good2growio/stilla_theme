@@ -143,7 +143,6 @@
         },
         "buttons_shape": {
           "label": "Forma",
-          "info": "Este ajuste también afectará a la forma de las muestras de color y a los botones de variación",
           "options": {
             "label_1": "Redondeado",
             "label_2": "Cuadrado",
@@ -670,24 +669,6 @@
           "label_bc": "Abajo al centro",
           "label_br": "Abajo a la derecha"
         }
-      },
-      "heading_size": {
-        "label": "Tamaño del título",
-        "options": {
-          "label_sm": "Pequeño",
-          "label_md": "Normal",
-          "label_lg": "Grande",
-          "label_xl": "Extragrande",
-          "label_xxl": "Extra extragrande"
-        }
-      },
-      "text_size": {
-        "label": "Tamaño del texto",
-        "options": {
-          "label_sm": "Pequeño",
-          "label_md": "Normal",
-          "label_lg": "Grande"
-        }
       }
     },
     "announcement_bar": {
@@ -740,9 +721,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "link_title": {
           "label": "Etiqueta de enlace"
@@ -821,9 +799,6 @@
         "heading": {
           "label": "Título"
         },
-        "subheading": {
-          "label": "Subtítulo"
-        },
         "link_title": {
           "label": "Etiqueta de enlace"
         },
@@ -852,9 +827,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         }
       },
       "blocks": {
@@ -883,9 +855,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "link_title": {
           "label": "Etiqueta de enlace"
@@ -959,9 +928,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "link_title": {
           "label": "Etiqueta de enlace"
@@ -1073,9 +1039,6 @@
         "heading": {
           "label": "Título"
         },
-        "subheading": {
-          "label": "Subtítulo"
-        },
         "link_title": {
           "label": "Etiqueta de enlace"
         },
@@ -1122,9 +1085,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "header_1": {
           "content": "Colecciones"
@@ -1179,9 +1139,6 @@
         "title": {
           "label": "Título"
         },
-        "subtitle": {
-          "label": "Subtítulo"
-        },
         "full_width": {
           "label": "Hacer la sección de ancho completo"
         },
@@ -1201,16 +1158,6 @@
         },
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
-        },
-        "heading_alignment": {
-          "label": "Alineación del encabezado",
-          "options": {
-            "label_1": "Izquierda",
-            "label_2": "Centro"
-          }
         }
       },
       "blocks": {
@@ -1245,9 +1192,6 @@
         },
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "products_to_show": {
           "label": "Número de productos"
@@ -1296,9 +1240,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "product": {
           "label": "Producto"
@@ -1538,9 +1479,6 @@
         "heading": {
           "label": "Título"
         },
-        "subheading": {
-          "label": "Subtítulo"
-        },
         "google_maps_api_key": {
           "label": "Clave API de Google Maps",
           "info": "Tendrás que activar las API tanto de [Google Maps](https:\/\/developers.google.com\/maps\/documentation\/javascript\/get-api-key) como de [Geocoding](https:\/\/developers.google.com\/maps\/documentation\/javascript\/geocoding#GetStarted) para visualizar el mapa."
@@ -1627,9 +1565,6 @@
         },
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "collections": {
           "label": "Colecciones",
@@ -1853,9 +1788,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "link_title": {
           "label": "Etiqueta de enlace"
@@ -2279,9 +2211,6 @@
         "title": {
           "label": "Título"
         },
-        "subtitle": {
-          "label": "Subtítulo"
-        },
         "column_alignment": {
           "label": "Alineación de columnas",
           "options": {
@@ -2388,9 +2317,6 @@
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "link_title": {
           "label": "Etiqueta de enlace"
@@ -2634,13 +2560,6 @@
             "text_color": {
               "label": "Color del texto"
             },
-            "content_width": {
-              "label": "Ancho del contenido %",
-              "info": "Solo se aplica en ordenador de sobremesa. El ancho máximo (en porcentaje) del contenido de una diapositiva."
-            },
-            "buttons_heading": {
-              "label": "Botones"
-            },
             "button_label": {
               "label": "Etiqueta del botón",
               "info": "Deja la etiqueta vacía para esconder el botón."
@@ -2655,19 +2574,9 @@
             "link": {
               "label": "Enlace"
             },
-            "secondary_button_label": {
-              "label": "Etiqueta del botón secundario",
-              "info": "Deja la etiqueta vacía para ocultar el botón secundario."
-            },
-            "secondary_button_type_link": {
-              "label": "Mostrar el botón secundario como enlace de texto"
-            },
-            "secondary_button_color_scheme": {
-              "label": "Esquema de color del botón secundario",
-              "info": "Se aplica cuando el botón no se visualiza como enlace."
-            },
-            "secondary_link": {
-              "label": "Enlace secundario"
+            "content_width": {
+              "label": "Ancho del contenido %",
+              "info": "Solo se aplica en ordenador de sobremesa. El ancho máximo (en porcentaje) del contenido de una diapositiva."
             },
             "mobile_layout": {
               "label": "Diseño para dispositivos móviles"
@@ -2679,45 +2588,11 @@
         }
       }
     },
-    "tabbed_content": {
-      "name": "Contenido en pestañas",
-      "settings": {
-        "heading": {
-          "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
-        }
-      },
-      "blocks": {
-        "tab": {
-          "name": "Pestaña",
-          "settings": {
-            "heading": {
-              "label": "Etiquetas de pestaña"
-            },
-            "content": {
-              "label": "Contenido"
-            },
-            "page": {
-              "label": "Página",
-              "info": "Si se selecciona una página, se reemplazará la configuración del contenido de la pestaña."
-            }
-          }
-        }
-      },
-      "preset": {
-        "name": "Contenido en pestañas"
-      }
-    },
     "testimonials": {
       "name": "Opiniones",
       "settings": {
         "heading": {
           "label": "Título"
-        },
-        "subheading": {
-          "label": "Subtítulo"
         },
         "call_to_action": {
           "label": "Texto de llamada a la acción"
@@ -2749,9 +2624,6 @@
         "heading": {
           "label": "Título"
         },
-        "subheading": {
-          "label": "Subtítulo"
-        },
         "cover_image": {
           "label": "Imagen de portada"
         },
@@ -2770,56 +2642,6 @@
       },
       "presets": {
         "name": "Vídeo"
-      }
-    },
-    "video_background": {
-      "name": "Fondo del vídeo",
-      "settings": {
-        "full_width": {
-          "label": "Hacer la sección de ancho completo"
-        },
-        "height": {
-          "label": "Altura",
-          "options": {
-            "label_2": "Pequeño",
-            "label_3": "Mediano",
-            "label_4": "Grande"
-          }
-        },
-        "background_image": {
-          "label": "Imagen de fondo"
-        },
-        "heading": {
-          "label": "Título"
-        },
-        "text": {
-          "label": "Descripción"
-        },
-        "button_label": {
-          "label": "Etiqueta del botón"
-        },
-        "button_link": {
-          "label": "Enlace de botón"
-        },
-        "header_1": {
-          "content": "Vídeo"
-        },
-        "custom_video": {
-          "label": "Vídeo autoalojado",
-          "info": "El vídeo autoalojado tendrá prioridad sobre la URL externa"
-        },
-        "video_url": {
-          "label": "URL externa (YouTube, Vimeo)",
-          "placeholder": "Usa una URL de YouTube o Vimeo",
-          "info": "El vídeo se reproduce en la página."
-        },
-        "video_description": {
-          "label": "Descripción del vídeo",
-          "info": "Describe el vídeo para hacerlo accesible para clientes que utilizan lectores de pantalla."
-        }
-      },
-      "presets": {
-        "name": "Fondo del vídeo"
       }
     }
   }

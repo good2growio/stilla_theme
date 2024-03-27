@@ -12,11 +12,12 @@
     },
     "subcollections": {
       "type": "main-collection-subcollections",
+      "disabled": true,
       "settings": {
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "show_title": true,
         "show_product_size": true,
-        "layout": "grid",
+        "layout": "slider",
         "columns": 6,
         "stack_on_mobile": false
       }
@@ -32,7 +33,7 @@
         "hide_empty_filters": false,
         "filters_bar_sticky": false,
         "filters_bar_color_scheme": "background-2",
-        "show_vendor": true,
+        "show_vendor": false,
         "show_stock": true,
         "show_rating": false,
         "side_menu_title": "Collections",

@@ -82,13 +82,13 @@
 							{%- for block in section.blocks -%}
 								{% case block.type %}
 									{%- when 'heading' -%}
-										<h2 class="media-with-text-heading heading-size-{{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+										<h2 class="media-with-text-heading" {{ block.shopify_attributes }}>
 											{{ block.settings.heading | escape }}
 										</h2>
 									{%- when 'caption' -%}
 										<p class="media-with-text-caption" {{ block.shopify_attributes }}>{{ block.settings.caption | escape }}</p>
 									{%- when 'text' -%}
-										<div class="media-with-text-text rte text-size-{{ block.settings.text_size }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+										<div class="media-with-text-text rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
 									{%- when 'button' -%}
 										{%- if block.settings.button_label != blank -%}
 											<a
@@ -246,34 +246,6 @@
           "id": "heading",
           "default": "Media with text",
           "label": "t:sections.media_with_text.blocks.heading.settings.heading.label"
-        },
-        {
-          "type": "select",
-          "id": "heading_size",
-          "label": "t:sections.all.heading_size.label",
-          "default": "md",
-          "options": [
-            {
-              "value": "sm",
-              "label": "t:sections.all.heading_size.options.label_sm"
-            },
-            {
-              "value": "md",
-              "label": "t:sections.all.heading_size.options.label_md"
-            },
-            {
-              "value": "lg",
-              "label": "t:sections.all.heading_size.options.label_lg"
-            },
-            {
-              "value": "xl",
-              "label": "t:sections.all.heading_size.options.label_xl"
-            },
-            {
-              "value": "xxl",
-              "label": "t:sections.all.heading_size.options.label_xxl"
-            }
-          ]
         }
       ]
     },
@@ -300,26 +272,6 @@
           "id": "text",
           "label": "t:sections.media_with_text.blocks.text.settings.text.label",
           "default": "<p>Pair text with media to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
-        },
-        {
-          "type": "select",
-          "id": "text_size",
-          "label": "t:sections.all.text_size.label",
-          "default": "md",
-          "options": [
-            {
-              "value": "sm",
-              "label": "t:sections.all.text_size.options.label_sm"
-            },
-            {
-              "value": "md",
-              "label": "t:sections.all.text_size.options.label_md"
-            },
-            {
-              "value": "lg",
-              "label": "t:sections.all.text_size.options.label_lg"
-            }
-          ]
         }
       ]
     },

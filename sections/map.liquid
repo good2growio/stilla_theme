@@ -40,18 +40,9 @@
 <div class="color-{{ section.settings.color_scheme }}">
 	<div class="container">
 		<div class="{{ block_section_class }}">
-			{% if section.settings.heading != blank or section.settings.subheading != blank %}
+			{% if section.settings.heading != blank %}
 				<div class="block-block-section-title-wrapper">
-					{% if section.settings.heading != blank or section.settings.subheading != blank %}
-						<div class="block-section-title-wrap">
-							{% if section.settings.heading != blank %}
-								<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-							{% endif %}
-							{% if section.settings.subheading != blank %}
-								<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-							{% endif %}
-						</div>
-					{% endif %}
+					<h2 class="block-section-title">{{ section.settings.heading }}</h2>
 				</div>
 			{% endif %}
 
@@ -147,11 +138,6 @@
       "id": "heading",
       "label": "t:sections.map.settings.heading.label",
       "default": "Our Stores"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.map.settings.subheading.label"
     },
     {
       "type": "text",

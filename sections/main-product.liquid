@@ -27,45 +27,82 @@
 	<link id="ModelViewerOverride" rel="stylesheet" href="{{ 'component-model-viewer-ui.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-<div class="container {% if product.media.size == 0 %}container-narrow{% endif %}">
+<div class="container">
 	<div class="block-section">
-		<div class="product product-page {% if product.media.size == 0 %}product-no-media{% endif %}">
+		<div class="product product-page">
 			{% if product.media.size > 0 %}
 				<div class="product-media-gallery-wrap">
 					<a class="skip-link visually-hidden visually-hidden-focusable" href="#Product-{{ section.id }}">{{ 'accessibility.link_messages.skip_to_product_info' | t }}</a>
 					<media-gallery id="MediaGallery-{{ section.id }}" role="region" class="product-media-gallery" aria-label="{{ 'products.product.media.gallery_viewer' | t }}" hide-variants="{{ section.settings.hide_variants }}">
 						<div class="product-media-wrapper">
-							{% if product.media %}
+							{% if product.media %}                
 								{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+								<div class="product-media-main-wrapper" data-placeholder="{% if settings.placeholder != blank %}{{ settings.placeholder | image_url }} {% endif %}"> 
+                
+                {%- for variant in product.variants -%}  
+                    {%- unless variant.metafields.acquastilla-middleware.is_excluded_from_frontend.value == "true" -%}
+                    
+                      {% assign variant_media_list2 = '' %}
+                      
+                      {%- for media2 in product.media -%}
+                        {% if media2.alt == variant.barcode %}  
+                          {% assign variant_media_list2 = variant_media_list2 | append: variant.barcode | append: "," | append: media2 | append: ","  %} 
 
-								<div class="product-media-main-wrapper">
+                          {%- if variant_media_list2 != '' -%}
+                            {% assign variant_media_array2 =  variant_media_list2 | split: "," %} 
+                          {%- endif -%} 
+                        {%- endif -%}
+                      {%- endfor -%}
+                     
+                      {%- if variant_media_list2 == '' and variant_media_array2[0] != product.selected_or_first_available_variant.barcode -%}
+                        <div class="product-media-main product-media product-media-placeholder is-active color-background-1">
+                          {%- if settings.placeholder != blank -%}
+                            {{ settings.placeholder | image_url: width: 585 | image_tag:
+                              loading: 'lazy',
+                              widths: '250, 450, 650, 750, 950',
+                              sizes: '(min-width: 1200px) 570px, (min-width: 990px) 585px'
+                            }}
+                          {%- else -%}
+                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    {%- endunless -%}
+                  {%- endfor -%} 
+
+                  {% assign variant_media_list = '' %}             
 									{%- assign media_position = 1 -%}
-									<div class="product-media-main product-media is-active" data-media-id="{{ featured_media.id }}">
-										{% render 'product-gallery-media',
-											media: featured_media,
-											position: media_position,
-											media_width: 800,
-											lazyload: false,
-											modal_id: section.id,
-											image_zoom_type: section.settings.image_zoom_type
-										%}
-									</div>
-
-									{%- for media in product.media -%}
-										{%- if media.id != featured_media.id -%}
-											{%- assign media_position = media_position | default: 1 | plus: 1 -%}
-											<div class="product-media-main product-media" data-media-id="{{ media.id }}">
-												{% render 'product-gallery-media',
-													media: media,
-													position: media_position,
-													media_width: 800,
-													lazyload: true,
-													modal_id: section.id,
-													image_zoom_type: section.settings.image_zoom_type
-												%}
-											</div>
-										{%- endif -%}
-									{%- endfor -%}
+                    <div class="product-media-main product-media {% if product.media[0].alt != blank and product.selected_or_first_available_variant.barcode == product.media[0].alt %} is-active{% endif %}" data-media-id="{{ featured_media.id }}" main-media-alt="{{ product.media[0].alt }}" >                  
+                      {% render 'product-gallery-media',
+                        media: featured_media,
+                        position: media_position,
+                        media_width: 800,
+                        lazyload: false,
+                        modal_id: section.id,
+                        image_zoom_type: section.settings.image_zoom_type
+                      %}
+                    </div> 
+                  {%- for media in product.media -%}
+                    {% if media.alt == product.selected_or_first_available_variant.barcode %}                  
+                      {% assign variant_media_list = variant_media_list | append: product.selected_or_first_available_variant.barcode | append: ", " | append: media | append: ", "  %}
+                      {% assign variant_media_array =  variant_media_list | split: ", " %}
+                    {% endif %} 
+                    {%- if variant_media_array.size -%}
+                      {%- if media.id != featured_media.id -%}
+                        {%- assign media_position = media_position | default: 1 | plus: 1 -%}
+                        <div class="product-media-main product-media {% if media.alt != blank and product.selected_or_first_available_variant.barcode == media.alt and media == variant_media_array[1] %} is-active{% endif %}" data-media-id="{{ media.id }}" main-media-alt="{{ media.alt }}" {% if media == variant_media_array[1] %}style="z-index: 2;"{% endif %}>
+                          {% render 'product-gallery-media',
+                            media: media,
+                            position: media_position,
+                            media_width: 800,
+                            lazyload: true,
+                            modal_id: section.id,
+                            image_zoom_type: section.settings.image_zoom_type
+                          %}
+                        </div>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}   
 								</div>
 
 								{%- assign media_position = 1 -%}
@@ -74,17 +111,26 @@
 										<div class="product-media-thumbnails">
 											<div class="product-media-thumbnail product-media is-active
 													{% if section.settings.hide_variants and variant_images contains featured_media.src %} product-media-thumbnail-variant{% endif %}"
-												data-media-id="{{ featured_media.id }}">
+                          thumbnail-alt="{{ product.media[0].alt }}"
+												data-media-id="{{ featured_media.id }}"
+                        {% if product.media[0].alt != blank and product.selected_or_first_available_variant.barcode != product.media[0].alt %} style="display: none;"{% endif %}>
 												{% render 'product-gallery-media-thumbnail',
 													media: featured_media, position: media_position, media_width: 400, lazyload: false
 												%}
 											</div>
 
 											{% for media in product.media %}
+                        {% if media.alt == product.selected_or_first_available_variant.barcode %}                  
+                          {% assign variant_media_list = variant_media_list | append: product.selected_or_first_available_variant.barcode | append: ", " | append: media | append: ", "  %}
+                          {% assign variant_media_array =  variant_media_list | split: ", " %}
+                        {% endif %} 
+
 												{%- if media.id != featured_media.id -%}
 													{%- assign media_position = media_position | default: 1 | plus: 1 -%}
-													<div class="product-media-thumbnail product-media
-															{% if section.settings.hide_variants and variant_images contains media.src %} product-media-thumbnail-variant{% endif %}"
+													<div class="product-media-thumbnail product- 
+															{% if section.settings.hide_variants and variant_images contains media.src %} product-media-thumbnail-variant{% endif %} {% if media == variant_media_array[1] %}is-active {% endif %}"
+                              {% if media.alt != blank and product.selected_or_first_available_variant.barcode != media.alt %}style="display: none;"{% endif %}
+                            thumbnail-alt="{{ media.alt }}"
 														data-media-id="{{ media.id }}">
 														{% render 'product-gallery-media-thumbnail',
 															media: media, position: media_position, media_width: 400, lazyload: true
@@ -110,7 +156,7 @@
 										</product-thumbnail-navigation>
 									{% endif %}
 								</div>
-							{% endif %}
+              {% endif %}
 						</div>
 					</media-gallery>
 
@@ -160,9 +206,43 @@
 					{% endif %}
 				</div>
 			{% endif %}
+      {% if product.media.size == 0 %}
+        <div class="product-media-wrapper">
+          <div class="product-media-main-wrapper">
+            <div class="product-media-main product-media is-active color-background-1">
+              {%- if settings.placeholder != blank -%}
+                {{ settings.placeholder | image_url: width: 585 | image_tag:
+                  loading: 'lazy',
+                  widths: '250, 450, 650, 750, 950',
+                  sizes: '(min-width: 1200px) 570px, (min-width: 990px) 585px'
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="product-media-scroll-wrap">
+            <div class="product-media-scroller">
+              <div class="product-media-thumbnails">
+                <div class="product-media-thumbnail product-media color-background-1 is-active">
+                  {%- if settings.placeholder != blank -%}
+                    {{ settings.placeholder | image_url: width: 250 | image_tag:
+                      loading: 'lazy',
+                      widths: '250',
+                      sizes: '250'
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+			{% endif %} 
 
 			<div class="product-info-wrap-content">
-				<div id="Product-{{ section.id }}" class="product-info">
+				<div id="Product-{{ section.id }}" class="product-info" data-id="{{ product.id }}">
 					{% for block in section.blocks %}
 						{% case block.type %}
 							{% when '@app' %}
@@ -211,6 +291,140 @@
 										{% endif %}
 									</div>
 								{% endif %}
+              
+              {% when 'description' %}
+                <div class="product-info-description">
+                  <div class="product-info-description-content">
+                    {% for block in section.blocks %}
+                      {% case block.type %}
+                        {%- when 'custom_liquid' -%}
+                          {% liquid
+                            if block.settings.position != "left"
+                              continue
+                            endif
+          
+                            assign is_expandable = false
+                            if block.settings.title != blank or block.settings.icon != blank
+                              assign is_expandable = true
+                            endif
+                          %}
+                          {% capture liquid_output %}{{ block.settings.custom_liquid }}{% endcapture %}
+                          {% if liquid_output != blank %}
+                            {% if is_expandable %}
+                              <collapsible-expandable expanded="{{ block.settings.expanded }}" {{ block.shopify_attributes }}>
+                                <div class="facet">
+                                  <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                    <span>
+                                      {% if block.settings.icon != blank %}
+                                        {% render 'icons', icon: block.settings.icon %}
+                                      {% endif %}
+                                      {{ block.settings.title }}
+                                    </span>
+                                    {% render 'angle', direction: 'down' %}
+                                  </button>
+                            {% else %}
+                              <div class="facet facet-standalone" {{ block.shopify_attributes }}>
+                            {% endif %}
+          
+                            <div class="facet-content rte">
+                              {{ block.settings.custom_liquid }}
+                            </div>
+          
+                            {% if is_expandable %}
+                                </div>
+                              </collapsible-expandable>
+                            {% else %}
+                              </div>
+                            {% endif %}
+                          {% endif %}
+          
+                        {% when 'description' %}               
+                          {% if product.description != blank %}
+                            <collapsible-expandable expanded="{{ block.settings.expanded }}">
+                              <div class="facet">
+                                <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                  <span>
+                                    {% if block.settings.icon != blank %}
+                                      {% render 'icons', icon: block.settings.icon %}
+                                    {% endif %}
+                                    {{ block.settings.title }}
+                                  </span>
+                                  {% render 'angle', direction: 'down' %}
+                                </button>
+          
+                                <ul class="variant-facet-description facet-content rte">
+                                  {% comment %} {{ product.description }} {% endcomment %}
+                                  <li class="variant-description-value {% if product.selected_or_first_available_variant.metafields.acquastilla-middleware.description.value == blank %} hidden{% endif %}">
+                                    {%- if product.selected_or_first_available_variant.metafields.acquastilla-middleware.description != blank -%} 
+                                    
+                                      {{ product.selected_or_first_available_variant.metafields.acquastilla-middleware.description }}
+                                      {%- else -%}
+                                      {{ product.description }}
+                                    {%- endif -%}
+                                  </li>
+                                  <li class="variant-weights-value {% if product.selected_or_first_available_variant.metafields.acquastilla-middleware.weights.value == blank %} hidden{% endif %}">
+                                    {%- if product.selected_or_first_available_variant.metafields.acquastilla-middleware.weights != blank -%}                              
+                                      {{ product.selected_or_first_available_variant.metafields.acquastilla-middleware.weights }}         
+                                    {%- endif -%}
+                                  </li>
+                                  <li class="variant-instructions-value {% if  product.selected_or_first_available_variant.metafields.custom.assembly_instructions.value == blank %} hidden{% endif %}">
+                                    {%- if product.selected_or_first_available_variant.metafields.custom.assembly_instructions != blank -%}                              
+                                     {{ product.selected_or_first_available_variant.metafields.custom.assembly_instructions }}       
+                                    {%- endif -%}
+                                  </li>  
+                                  <li class="variant-notes-value {% if  product.selected_or_first_available_variant.metafields.custom.environmental_notes.value == blank %} hidden{% endif %}">
+                                    {%- if product.selected_or_first_available_variant.metafields.custom.environmental_notes != blank -%}                              
+                                      {{ product.selected_or_first_available_variant.metafields.custom.environmental_notes }}         
+                                    {%- endif -%}
+                                  </li>
+                                  
+                                </ul>
+          
+                              </div>
+                            </collapsible-expandable>
+                          {% endif %}
+          
+                        {% when 'reviews' %}
+                          <collapsible-expandable expanded="{{ block.settings.expanded }}" id="product-reviews" class="product-reviews">
+                            <div class="facet">
+                              <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                <span>
+                                  {% render 'icon-star-empty' %}
+                                  {{ 'products.product.reviews' | t }}
+                                </span>
+                                {% render 'angle', direction: 'down' %}
+                              </button>
+          
+                              <div class="facet-content">
+                                {% render 'product-review-widget', product: product %}
+                              </div>
+                            </div>
+                          </collapsible-expandable>
+          
+                        {% when 'expandable' %}
+                          {% if block.settings.text != blank %}
+                            <collapsible-expandable expanded="{{ block.settings.expanded }}">
+                              <div class="facet">
+                                <button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
+                                  <span>
+                                    {% if block.settings.icon != blank %}
+                                      {% render 'icons', icon: block.settings.icon %}
+                                    {% endif %}
+                                    {{ block.settings.title }}
+                                  </span>
+                                  {% render 'angle', direction: 'down' %}
+                                </button>
+          
+                                <div class="facet-content rte">
+                                  {{ block.settings.text }}
+                                </div>
+                              </div>
+                            </collapsible-expandable>
+                          {% endif %}
+                      {% endcase %}
+                    {% endfor %}
+                  </div>
+                </div>
 
 							{% when 'title' %}
 								<div class="product-info-main" {{ block.shopify_attributes }}>
@@ -374,23 +588,45 @@
 												data-url="{{ product.url }}"
 												data-hide-single="{{ block.settings.hide_single_variant }}"
 												data-variants-visibility="{{ block.settings.out_of_stock_variants }}">
+
+                        <div class="hidden measure-title" data-value="{{ 'products.product.measure_title' | t }}"></div>
+                        <div class="hidden sku-title" data-value="{{ 'products.product.sku_title' | t }}"></div>
+                        <div class="hidden units-title" data-value="{{ 'products.product.package_title' | t }}"></div>
+
 												{%- for option in product.options_with_values -%}
-													<fieldset class="js product-form-input {% if swatches_options contains option.name %}color-swatch{% endif %}"
-															  data-option-name="{{ option.name }}"
-													>
-														<legend>{{ option.name }}</legend>
-														{%- for value in option.values -%}
-															<input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-																name="{{ option.name }}"
-																value="{{ value | escape }}"
-																form="{{ product_form_id }}"
-																{% if option.selected_value == value %}checked{% endif %}
-															>
-															<label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-																{{ value }}
-															</label>
-														{%- endfor -%}
-													</fieldset>
+                          {%- if option.name == 'SKU' or option.name == 'sku' -%}
+                            <div class="hidden">
+                              <div class="sku-legend" data-value="{{ 'products.product.variants_title' | t }}"></div>
+                              {%- for variant in product.variants -%} 
+                                <div class="hidden variant-sku" data-value="{{ variant.sku }}" data-variant="{{ variant.id }}">              
+                                  {%- if variant.available and variant.inventory_quantity >= settings.only_x_left -%}
+                                    <span class="in-stock-badge" data-value="{{ 'products.product.availability.in_stock' | t }}"></span>
+                                  {%- elsif variant.available and variant.inventory_quantity < settings.only_x_left -%}
+                                    <span class="only-x-left-badge" data-value="{{ 'products.product.availability.number_left' | t }}"></span>
+                                  {%- else -%}
+                                    <span class="out-of-stock-badge" data-value="{{ 'products.product.availability.out_of_stock' | t }}"></span>
+                                  {%- endif -%}
+                                </div> 
+                              {%- endfor -%} 
+                            </div>
+                          {%- endif -%}
+                          <fieldset class="js product-form-input {% if swatches_options contains option.name %}color-swatch{% endif %}"
+                            data-option-name="{{ option.name }}"
+                          >
+                            <legend>{{ option.name }}</legend>
+                            {%- for value in option.values -%}
+                              <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
+                                name="{{ option.name }}"
+                                value="{{ value | escape }}"
+                                form="{{ product_form_id }}"
+                                data-variant-id="222"
+                                {% if option.selected_value == value %}checked{% endif %}
+                              >
+                              <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                {{ value }}
+                              </label>
+                            {%- endfor -%}
+                          </fieldset>
 												{%- endfor -%}
 												<script type="application/json" data-id="product-options">{{ product.options | json }}</script>
 												<script type="application/json" data-id="product-variants">{{ product.variants | json }}</script>
@@ -635,114 +871,7 @@
 				</div>
 			</div>
 
-			<div class="product-info-description">
-				<div class="product-info-description-content">
-					{% for block in section.blocks %}
-						{% case block.type %}
-							{%- when 'custom_liquid' -%}
-								{% liquid
-									if block.settings.position != "left"
-										continue
-									endif
-
-									assign is_expandable = false
-									if block.settings.title != blank or block.settings.icon != blank
-										assign is_expandable = true
-									endif
-								%}
-								{% capture liquid_output %}{{ block.settings.custom_liquid }}{% endcapture %}
-								{% if liquid_output != blank %}
-									{% if is_expandable %}
-										<collapsible-expandable expanded="{{ block.settings.expanded }}" {{ block.shopify_attributes }}>
-											<div class="facet">
-												<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-													<span>
-														{% if block.settings.icon != blank %}
-															{% render 'icons', icon: block.settings.icon %}
-														{% endif %}
-														{{ block.settings.title }}
-													</span>
-													{% render 'angle', direction: 'down' %}
-												</button>
-									{% else %}
-										<div class="facet facet-standalone" {{ block.shopify_attributes }}>
-									{% endif %}
-
-									<div class="facet-content rte">
-										{{ block.settings.custom_liquid }}
-									</div>
-
-									{% if is_expandable %}
-											</div>
-										</collapsible-expandable>
-									{% else %}
-										</div>
-									{% endif %}
-								{% endif %}
-
-							{% when 'description' %}
-								{% if product.description != blank %}
-									<collapsible-expandable expanded="{{ block.settings.expanded }}">
-										<div class="facet">
-											<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-												<span>
-													{% if block.settings.icon != blank %}
-														{% render 'icons', icon: block.settings.icon %}
-													{% endif %}
-													{{ block.settings.title }}
-												</span>
-												{% render 'angle', direction: 'down' %}
-											</button>
-
-											<div class="facet-content rte">
-												{{ product.description }}
-											</div>
-
-										</div>
-									</collapsible-expandable>
-								{% endif %}
-
-							{% when 'reviews' %}
-								<collapsible-expandable expanded="{{ block.settings.expanded }}" id="product-reviews" class="product-reviews">
-									<div class="facet">
-										<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-											<span>
-												{% render 'icon-star-empty' %}
-												{{ 'products.product.reviews' | t }}
-											</span>
-											{% render 'angle', direction: 'down' %}
-										</button>
-
-										<div class="facet-content">
-											{% render 'product-review-widget', product: product %}
-										</div>
-									</div>
-								</collapsible-expandable>
-
-							{% when 'expandable' %}
-								{% if block.settings.text != blank %}
-									<collapsible-expandable expanded="{{ block.settings.expanded }}">
-										<div class="facet">
-											<button class="facet-toggle" type="button" aria-expanded="{{ block.settings.expanded }}">
-												<span>
-													{% if block.settings.icon != blank %}
-														{% render 'icons', icon: block.settings.icon %}
-													{% endif %}
-													{{ block.settings.title }}
-												</span>
-												{% render 'angle', direction: 'down' %}
-											</button>
-
-											<div class="facet-content rte">
-												{{ block.settings.text }}
-											</div>
-										</div>
-									</collapsible-expandable>
-								{% endif %}
-						{% endcase %}
-					{% endfor %}
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -3463,3 +3592,5 @@
   ]
 }
 {% endschema %}
+
+

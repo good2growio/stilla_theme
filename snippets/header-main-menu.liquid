@@ -25,7 +25,7 @@
 		<li class="navigation-item
 			{% if forloop.first and align_right %} navigation-item-end {% endif %}
 			{% if is_mega %} navigation-item-static {% endif %}
-			{% if link.links != blank %} has-sub-menu {% endif %}"
+			{% if link.links != blank %} has-sub-menu {% endif %}{% if link.title == "Promo" or link.title == "PROMO" or link.title == "promo" %} color {% endif %}"
 		>
 			<a
 				href="{{ link.url }}"

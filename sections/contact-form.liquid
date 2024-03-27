@@ -5,6 +5,12 @@
 </style>
 
 <div class="container container-narrow block-section">
+  {% if section.settings.subtitle != blank %}
+    <h2 class="title">{{ section.settings.subtitle }}</h2>
+  {%- endif -%}
+  {% if section.settings.text != blank %}
+	  <div class="rte">{{ section.settings.text }}</div>
+  {%- endif -%}
 	<div class="contact-form section-{{ section.id }}">
 		{% if section.settings.title != blank %}
 			<h2 class="title">{{ section.settings.title | escape }}</h2>
@@ -92,6 +98,18 @@
       "id": "title",
       "label": "t:sections.contact_form.settings.title.label",
       "default": "Contact form"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Servizio clienti"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Domande o informazioni? Scrivete al nostro Team di supporto utilizzando questo modulo, o contattandoci direttamente tramite un'email all'indirizzo info@acquastilla.com</p>"
     }
   ]
 }

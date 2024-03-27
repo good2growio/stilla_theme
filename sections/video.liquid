@@ -40,18 +40,13 @@
 	<div class="{% if section.settings.full_width %} block-section-fullwidth{% else %} container{% endif %}">
 		<div class="{{ block_section_class }}">
 			<div {% if section.settings.full_width %} class="container"{% endif %}>
-				{% if section.settings.heading != blank or section.settings.subheading != blank %}
+				{%- unless section.settings.heading == blank -%}
 					<div class="block-block-section-title-wrapper">
-						<div class="block-section-title-wrap">
-							{% if section.settings.heading != blank %}
-								<h2 class="block-section-title">{{ section.settings.heading }}</h2>
-							{% endif %}
-							{% if section.settings.subheading != blank %}
-								<p class="block-section-subtitle">{{ section.settings.subheading }}</p>
-							{% endif %}
-						</div>
+						<h2 class="block-section-title">
+							{{ section.settings.heading | escape }}
+						</h2>
 					</div>
-				{% endif %}
+				{%- endunless -%}
 			</div>
 
 			<div class="video-section-wrap color-background-1">
@@ -84,11 +79,6 @@
       "id": "heading",
       "default": "Video",
       "label": "t:sections.video.settings.heading.label"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "t:sections.video.settings.subheading.label"
     },
     {
       "type": "image_picker",

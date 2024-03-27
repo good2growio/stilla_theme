@@ -19,9 +19,9 @@
 		assign options_with_values_reversed = product.options_with_values | reverse
 		assign product_variants_reversed = product.variants | reverse
 	-%}
-	{%- # theme-check-disable LiquidTag -%}
+	{% # theme-check-disable LiquidTag %}
 	{%- for option in options_with_values_reversed -%}
-	{%- # theme-check-enable LiquidTag -%}
+	{% # theme-check-enable LiquidTag %}
 		{%- if swatches_options contains option.name -%}
 			{%- if option.values.size == 1 -%}
 				{%- continue -%}

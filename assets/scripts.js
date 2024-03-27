@@ -616,6 +616,7 @@ class VariantSelects extends HTMLElement {
 		this.updateOptions();
 		this.updateMasterId();
 		this.toggleAddButton(true, '');
+    this.updateVariantImages();
 
 		this.updatePickupAvailability();
 
@@ -637,6 +638,64 @@ class VariantSelects extends HTMLElement {
 		}
 	}
 
+  updateVariantImages() {
+    const mediaWrapper = document.querySelector('.product-media-main-wrapper');
+    const thumbnailsWrapper = document.querySelector('.product-media-thumbnails');
+    document.querySelectorAll("[thumbnail-alt]").forEach(img => img.style.display = "none");
+    const currentImageAlt = this.currentVariant.barcode;
+    const thumbnailSelector = `[thumbnail-alt="${currentImageAlt}"]`;
+    document.querySelectorAll(thumbnailSelector).forEach(img => img.style.display = "block");
+    const mainMediaSelector = `[main-media-alt="${currentImageAlt}"]`;
+    document.querySelectorAll("[main-media-alt]").forEach(img => img.classList.remove("is-active"));
+    const mainImages = document.querySelectorAll(mainMediaSelector);
+    for (let i = 0; i < mainImages.length; i++) {
+      mainImages[0].classList.add("is-active");
+    }
+
+    const placeholderImageSrc = mediaWrapper.dataset.placeholder;
+
+    const mediaPlaceholders = document.querySelectorAll('.product-media-placeholder');
+    const remove = el => el.parentElement.removeChild(el);
+
+    if (mediaPlaceholders.length) {
+      mediaPlaceholders.forEach(element => remove(element));
+    }
+
+    const thumbnailPlaceholders = document.querySelectorAll('.product-thumbnail-placeholder');
+
+    if (thumbnailPlaceholders.length) {
+      thumbnailPlaceholders.forEach(element => remove(element));
+    }
+
+    if (currentImageAlt && mainImages.length == 0) {
+      const placeholderMediaWrapper = document.createElement('div');
+      placeholderMediaWrapper.classList.add('product-media-main', 'product-media', 'product-media-placeholder', 'is-active', 'color-background-1');
+      
+      if (placeholderImageSrc) {
+        placeholderMediaWrapper.insertAdjacentHTML("beforeend", `
+        <img src="${placeholderImageSrc}" alt="" srcset="${placeholderImageSrc} 250w, ${placeholderImageSrc} 450w" width="585" height="473" loading="lazy" sizes="(min-width: 1200px) 570px, (min-width: 990px) 585px">
+        `);
+      } else {
+        placeholderMediaWrapper.insertAdjacentHTML("beforeend", `
+        <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 525.5 525.5"><path d="M324.5 212.7H203c-1.6 0-2.8 1.3-2.8 2.8V308c0 1.6 1.3 2.8 2.8 2.8h121.6c1.6 0 2.8-1.3 2.8-2.8v-92.5c0-1.6-1.3-2.8-2.9-2.8zm1.1 95.3c0 .6-.5 1.1-1.1 1.1H203c-.6 0-1.1-.5-1.1-1.1v-92.5c0-.6.5-1.1 1.1-1.1h121.6c.6 0 1.1.5 1.1 1.1V308z"></path><path d="M210.4 299.5H240v.1s.1 0 .2-.1h75.2v-76.2h-105v76.2zm1.8-7.2l20-20c1.6-1.6 3.8-2.5 6.1-2.5s4.5.9 6.1 2.5l1.5 1.5 16.8 16.8c-12.9 3.3-20.7 6.3-22.8 7.2h-27.7v-5.5zm101.5-10.1c-20.1 1.7-36.7 4.8-49.1 7.9l-16.9-16.9 26.3-26.3c1.6-1.6 3.8-2.5 6.1-2.5s4.5.9 6.1 2.5l27.5 27.5v7.8zm-68.9 15.5c9.7-3.5 33.9-10.9 68.9-13.8v13.8h-68.9zm68.9-72.7v46.8l-26.2-26.2c-1.9-1.9-4.5-3-7.3-3s-5.4 1.1-7.3 3l-26.3 26.3-.9-.9c-1.9-1.9-4.5-3-7.3-3s-5.4 1.1-7.3 3l-18.8 18.8V225h101.4z"></path><path d="M232.8 254c4.6 0 8.3-3.7 8.3-8.3s-3.7-8.3-8.3-8.3-8.3 3.7-8.3 8.3 3.7 8.3 8.3 8.3zm0-14.9c3.6 0 6.6 2.9 6.6 6.6s-2.9 6.6-6.6 6.6-6.6-2.9-6.6-6.6 3-6.6 6.6-6.6z"></path></svg>
+        `);
+      }
+      mediaWrapper.appendChild(placeholderMediaWrapper);
+      const placeholderMediaIconWrapper = document.createElement('div');
+      placeholderMediaIconWrapper.classList.add('product-media-thumbnail', 'product-media', 'product-thumbnail-placeholder', 'is-active', 'color-background-1');
+      if (placeholderImageSrc) {
+        placeholderMediaIconWrapper.insertAdjacentHTML("beforeend", `
+        <img src="${placeholderImageSrc}" alt="" srcset="${placeholderImageSrc} 250w" width="250" height="202" loading="lazy" sizes="250">
+        `);
+      } else {
+        placeholderMediaIconWrapper.insertAdjacentHTML("beforeend", `
+        <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 525.5 525.5"><path d="M324.5 212.7H203c-1.6 0-2.8 1.3-2.8 2.8V308c0 1.6 1.3 2.8 2.8 2.8h121.6c1.6 0 2.8-1.3 2.8-2.8v-92.5c0-1.6-1.3-2.8-2.9-2.8zm1.1 95.3c0 .6-.5 1.1-1.1 1.1H203c-.6 0-1.1-.5-1.1-1.1v-92.5c0-.6.5-1.1 1.1-1.1h121.6c.6 0 1.1.5 1.1 1.1V308z"></path><path d="M210.4 299.5H240v.1s.1 0 .2-.1h75.2v-76.2h-105v76.2zm1.8-7.2l20-20c1.6-1.6 3.8-2.5 6.1-2.5s4.5.9 6.1 2.5l1.5 1.5 16.8 16.8c-12.9 3.3-20.7 6.3-22.8 7.2h-27.7v-5.5zm101.5-10.1c-20.1 1.7-36.7 4.8-49.1 7.9l-16.9-16.9 26.3-26.3c1.6-1.6 3.8-2.5 6.1-2.5s4.5.9 6.1 2.5l27.5 27.5v7.8zm-68.9 15.5c9.7-3.5 33.9-10.9 68.9-13.8v13.8h-68.9zm68.9-72.7v46.8l-26.2-26.2c-1.9-1.9-4.5-3-7.3-3s-5.4 1.1-7.3 3l-26.3 26.3-.9-.9c-1.9-1.9-4.5-3-7.3-3s-5.4 1.1-7.3 3l-18.8 18.8V225h101.4z"></path><path d="M232.8 254c4.6 0 8.3-3.7 8.3-8.3s-3.7-8.3-8.3-8.3-8.3 3.7-8.3 8.3 3.7 8.3 8.3 8.3zm0-14.9c3.6 0 6.6 2.9 6.6 6.6s-2.9 6.6-6.6 6.6-6.6-2.9-6.6-6.6 3-6.6 6.6-6.6z"></path></svg>
+        `);
+      }
+      thumbnailsWrapper.appendChild(placeholderMediaIconWrapper);
+    }
+  }
+  
 	updateOptions() {
 		this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
 	}
@@ -836,6 +895,8 @@ class VariantSelects extends HTMLElement {
 			this.productData.swatches = JSON.parse(this.querySelector('[type="application/json"][data-id="product-swatches"]').textContent);
 		}
 
+    // console.log(this.productData);
+
 		return this.productData;
 	}
 
@@ -867,6 +928,7 @@ class VariantRadios extends VariantSelects {
 
 	onRadioChange() {
 		this.updateRadiosInFieldset(0);
+    this.updateDescriptions();
 
 		if (this.product.options.length > 1) {
 			this.updateRadiosInFieldset(1);
@@ -881,10 +943,99 @@ class VariantRadios extends VariantSelects {
 		return Array.from(fieldset.querySelectorAll('input')).find((radio) => radio.checked).value
 	}
 
+  updateDescriptions() {
+    const descriptionValueElement = document.querySelector(".variant-description-value");
+    const instructionsValueElement = document.querySelector(".variant-instructions-value");
+    const notesValueElement = document.querySelector(".variant-notes-value");
+    const weightsValueElement = document.querySelector(".variant-weights-value");
+
+    const inputsSku = this.querySelectorAll('input[name="SKU"]');
+    const variantsId = this.variantData;
+
+    if (inputsSku.length) {      
+
+      inputsSku.forEach(function(inputItem) {      
+        if (inputItem.checked) {
+          const inputValue = inputItem.value;
+      
+          variantsId.forEach(function(variantId) {
+            const variantIdValue = variantId.id;
+
+            const baseUrl = 'https://acquastilla.myshopify.com/api/2024-01/graphql.json';
+            const accessToken = '1337a366545d24240e3124c8106c8c8e';
+  
+            const headers = {
+              'Content-Type': 'application/json',
+              'X-Shopify-Storefront-Access-Token': accessToken
+            };
+  
+            const data = {
+              query: `
+                {
+                  node(id: "gid:\/\/shopify\/ProductVariant\/${variantIdValue}") {
+                    ... on ProductVariant {
+                      VariantTitle: title
+                      VariantDescription: metafield(key: "description", namespace: "acquastilla-middleware") {
+                        value
+                      } 
+                      VariantNotes: metafield(key: "environmental_notes", namespace: "custom") {
+                        value
+                      }  
+                      VariantInstructions: metafield(key: "assembly_instructions", namespace: "custom") {
+                        value
+                      }   
+                      VariantWeights: metafield(key: "weights", namespace: "acquastilla-middleware") {
+                        value
+                      }             
+                    }
+                  }
+                }
+              `
+            }
+  
+            fetch(baseUrl, {
+              method: 'POST',
+              headers: headers,
+              body: JSON.stringify(data)
+            })
+            .then(response => {
+              if (!response.ok) {
+                console.log('Error: ' + response.status)
+              } else {
+                return response.json();
+              }
+            })
+            .then(data => {           
+              const changeValue = function(content, element, input) {
+
+                if (content != null && data.data.node.VariantTitle != null && data.data.node.VariantTitle === input) {
+                  element.classList.remove('hidden');
+                  element.innerText = content.value;
+                }
+
+                if (content === null && data.data.node.VariantTitle != null && data.data.node.VariantTitle === input) {
+                  element.classList.add('hidden');
+                  element.innerText = '';
+                }
+              }
+
+              changeValue(data.data.node.VariantDescription, descriptionValueElement, inputValue);
+              changeValue(data.data.node.VariantWeights, weightsValueElement, inputValue);
+              changeValue(data.data.node.VariantInstructions, instructionsValueElement, inputValue);
+              changeValue(data.data.node.VariantNotes, notesValueElement, inputValue);
+            })
+            .catch(error => console.log(error));
+          });
+        }
+      });
+    }
+  }
+
 	updateRadiosInFieldset(selectorIndex) {
 		const selector = this.fieldsets[selectorIndex];
 		const optionName = selector.dataset.optionName;
 		const originalValue = this.getFieldsetCheckedValue(selector);
+    const skuVariants = document.querySelectorAll('.variant-sku');    
 
 		selector.replaceChildren();
 
@@ -898,8 +1049,15 @@ class VariantRadios extends VariantSelects {
 			key = value0 + ' / ' + value1;
 		}
 
-		const legend = document.createElement('legend');
-		legend.textContent = optionName;
+    const legend = document.createElement('legend');
+    const oldLegend = document.querySelector('.sku-legend');
+
+    if (oldLegend) {
+      legend.textContent = oldLegend.dataset.value;
+    } else {
+      legend.textContent = optionName;
+    }
+	
 		selector.append(legend);
 
 		const availableOptions = this.optionsMap[key];
@@ -910,14 +1068,190 @@ class VariantRadios extends VariantSelects {
 			checkFirst = true;
 		}
 
+    const variantsId = this.variantData;
+
 		for (let i = 0; i < availableOptions.length; i++) {
 			const option = availableOptions[i];
 			const id = `${this.dataset.section}-${selectorIndex}-${i}`;
 
 			const newLabel = document.createElement('label');
+      newLabel.style.opacity = 0;
+      const baseUrl = 'https://acquastilla.myshopify.com/api/2024-01/graphql.json';
+      const accessToken = '1337a366545d24240e3124c8106c8c8e';
+
+      const headers = {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': accessToken
+      };
+
+      variantsId.forEach(function(variantId) {
+        const data = {
+          query: `
+            {
+              node(id: "gid:\/\/shopify\/ProductVariant\/${variantId.id}") {
+                ... on ProductVariant {
+                  VariantTitle: title 
+                  VariantExcluded: metafield(key: "is_excluded_from_frontend", namespace: "acquastilla-middleware") {
+                    value
+                  }
+                  VariantHeading: metafield(key: "title", namespace: "custom") {
+                    value
+                  }
+                  PiecesPerPackage: metafield(key: "pieces_per_package", namespace: "acquastilla-middleware") {
+                    value
+                  }
+                  VariantMeasurements: metafield(key: "measurements", namespace: "acquastilla-middleware") {
+                    value
+                  } 
+                  MeasurementUnits: metafield(key: "measurement_units", namespace: "acquastilla-middleware") {
+                    value
+                  }  
+                  FinishMaterials: metafield(key: "finish_materials", namespace: "acquastilla-middleware") {
+                    value
+                  } 
+                  VariantPrice: price {
+                    amount
+                    currencyCode
+                  } 
+                  VariantCompareAtPrice: compareAtPrice {
+                    amount
+                    currencyCode
+                  }                
+                }
+              }
+            }
+          `
+        }
+
+        if (variantId.title === availableOptions[i]) {
+          fetch(baseUrl, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data)
+          })
+          .then(response => {
+            if (!response.ok) {
+              console.log('Error: ' + response.status)
+            } else {
+              return response.json();
+            }
+          })
+          .then(data => {           
+            console.log(data);
+
+           if (data.data.node.VariantExcluded.value != 'true') {
+              const variantTitleName = document.querySelector('.sku-title').dataset.value;
+              const variantMeasureName = document.querySelector('.measure-title').dataset.value;
+              const variantPackageName = document.querySelector('.units-title').dataset.value;
+              
+              if (data.data.node.VariantHeading != null) {
+                const variantHeadingValue = data.data.node.VariantHeading.value;
+                const newVariantHeading = document.createElement('span');
+                newVariantHeading.classList.add('variant-title');
+                newVariantHeading.textContent = variantHeadingValue;
+                newLabel.appendChild(newVariantHeading);
+              }
+
+              const metafieldWrapper = document.createElement('div');
+              metafieldWrapper.classList.add('metafield-wrapper');
+
+              if (data.data.node.PiecesPerPackage != null && data.data.node.MeasurementUnits != null) {
+                const packageUnit = JSON.parse(data.data.node.MeasurementUnits.value);
+                const packageValueData = variantPackageName + data.data.node.PiecesPerPackage.value + packageUnit.shortForm;
+                const newPackageValue = document.createElement('span');
+                newPackageValue.textContent = packageValueData;
+                metafieldWrapper.appendChild(newPackageValue);
+              }
+
+              const newSkuTitle = document.createElement('span');
+          
+              newSkuTitle.textContent = variantTitleName + data.data.node.VariantTitle;
+              
+              metafieldWrapper.appendChild(newSkuTitle);
+              newLabel.appendChild(metafieldWrapper);
+
+              if (data.data.node.VariantMeasurements != null) {
+                const newMesurement = document.createElement('span');
+                newMesurement.classList.add('measurement');
+                const newMesurementData = document.createElement('span');
+                newMesurementData.textContent = data.data.node.VariantMeasurements.value;
+                newMesurement.textContent = variantMeasureName;
+                newMesurement.appendChild(newMesurementData);
+                newLabel.appendChild(newMesurement);
+              }
+
+              if (data.data.node.FinishMaterials != null) {
+                const finishMaterialsData = data.data.node.FinishMaterials.value;
+                const newFinishMaterials = document.createElement('span');
+                newFinishMaterials.classList.add('metafield-wrapper');
+                newFinishMaterials.textContent = finishMaterialsData;
+                newLabel.appendChild(newFinishMaterials);
+              }
+
+              const priceWrapper = document.createElement('div');
+              priceWrapper.classList.add('metafield-wrapper');
+
+              if (data.data.node.VariantPrice != null) {
+                const newPriceValue = data.data.node.VariantPrice.currencyCode + data.data.node.VariantPrice.amount;
+                const newNewPrice =document.createElement('span');
+                newNewPrice.classList.add('variant-price');
+                newNewPrice.textContent = newPriceValue;
+                priceWrapper.appendChild(newNewPrice);
+              }
+
+              if (data.data.node.VariantCompareAtPrice != null) {
+                const oldPriceValue = data.data.node.VariantCompareAtPrice.currencyCode + data.data.node.VariantCompareAtPrice.amount;
+                const newOldPrice = document.createElement('span');
+                newOldPrice.classList.add('variant-price');
+                newOldPrice.classList.add('old');
+                newOldPrice.textContent = oldPriceValue;
+                priceWrapper.appendChild(newOldPrice);
+              }
+
+              if (data.data.node.VariantPrice != null && data.data.node.VariantCompareAtPrice != null) {
+                const priceDiscountValue = -100 + Math.round(data.data.node.VariantPrice.amount / data.data.node.VariantCompareAtPrice.amount * 100) + '%';
+                const newPriceDiscount = document.createElement('span');
+                newPriceDiscount.classList.add('discount-percent');
+                newPriceDiscount.textContent = priceDiscountValue;
+                priceWrapper.appendChild(newPriceDiscount);
+              }
+
+              newLabel.appendChild(priceWrapper);
+
+              if (skuVariants.length) {
+                skuVariants.forEach(function(item) {
+                  const valueData = item.dataset.value;
+                  if (valueData === availableOptions[i]) {
+
+                    const inStockBadge = item.querySelector('.in-stock-badge');
+                    const onlyXLeftBadge = item.querySelector('.only-x-left-badge');
+                    const outOfStockBadge = item.querySelector('.out-of-stock-badge');
+
+                    const badgeWrapper = document.createElement('div');
+                    badgeWrapper.classList.add('badge-wrapper');
+                    let badgeValue;
+                    if (inStockBadge) {
+                      badgeValue = ' ';
+                    } else if (onlyXLeftBadge) {
+                      badgeValue = onlyXLeftBadge.dataset.value;
+                    } else {
+                      badgeValue = outOfStockBadge.dataset.value;
+                    }
+          
+                    badgeWrapper.textContent = badgeValue;
+                    priceWrapper.appendChild(badgeWrapper);
+                  }
+                })
+              }
+              newLabel.style.opacity = 1;
+            }
+          })
+          .catch(error => console.log(error));
+        }   
+      })
+    
 			newLabel.value = option;
 			newLabel.htmlFor = id;
-			newLabel.textContent = option;
 
 			if (this.nodeName === 'VARIANT-RADIOS' && this.productData.swatches?.swatches_on_products && this.productData.swatches?.swatches[option] && this.productData.swatches.swatches_options?.includes(optionName)) {
 				const color = this.productData.swatches.swatches[option].color;
@@ -945,9 +1279,9 @@ class VariantRadios extends VariantSelects {
 				checkFirst = false;
 			}
 
-			if (this.disableOutOfStock && outOfStockOptions?.includes(option)) {
-				newOption.disabled = 'true';
-			}
+			// if (this.disableOutOfStock && outOfStockOptions?.includes(option)) {
+			// 	newOption.disabled = 'true';
+			// }
 
 			selector.append(newOption);
 			selector.append(newLabel);
@@ -966,7 +1300,6 @@ class VariantRadios extends VariantSelects {
 customElements.define('variant-radios', VariantRadios);
 
 // Product card
-//
 
 class ProductCard extends HTMLElement {
 	constructor() {
@@ -1287,7 +1620,7 @@ class CartItems extends HTMLElement {
 	}
 
 	updateSectionContents() {
-		return fetch(`${window.location.pathname}?sections=${this.getSectionsToRender().map((section) => section.section).join(',')}&v=${Date.now()}`).then(response => {
+		return fetch(`${window.location.pathname}?sections=${this.getSectionsToRender().map((section) => section.section).join(',')}`).then(response => {
 			return response.json();
 		}).then(response => {
 			this.getSectionsToRender().forEach((section => {
@@ -1326,10 +1659,6 @@ class MiniCart extends CartItems {
 		super();
 
 		this.toggle = this.querySelector('drawer-toggle');
-	}
-
-	connectedCallback() {
-		this.updateSectionContents();
 	}
 
 	open(opener) {
@@ -1512,7 +1841,7 @@ class TabsNavigation extends HTMLElement {
 	}
 
 	setActiveTab(nav) {
-		const target = nav.getAttribute('data-handle');
+		const target = nav.getAttribute('data-collection-handle');
 		const tabsComponent = document.querySelector(`#${this.sliderId}`);
 
 		if (!tabsComponent) {

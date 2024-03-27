@@ -81,7 +81,7 @@
     "product": {
       "on_sale": "Vendita",
       "vendor": "Fornitore",
-      "sku": "SKU",
+      "sku": "Codice",
       "product_variants": "Varianti del prodotto",
       "add_to_cart": "Aggiungi al carrello",
       "pre_order": "Preordina",
@@ -103,12 +103,12 @@
         "decrease": "Riduci quantità per {{ product }}"
       },
       "availability": {
-        "in_stock": "Disponibile",
-        "always_in_stock": "Disponibile",
-        "out_of_stock": "Esaurito",
-        "number_left": "Solo {{ count }} rimasto\/i",
-        "number_available": "{{ count }} articoli disponibili",
-        "unavailable": "Non disponibile",
+        "in_stock": "Promo",
+        "always_in_stock": "Promo",
+        "out_of_stock": "NON DISPONIBILE",
+        "number_left": "ULTIMI PEZZI",
+        "number_available": "ULTIMI PEZZI",
+        "unavailable": "NON DISPONIBILE",
         "pre_order": "Presto disponibile"
       },
       "media": {
@@ -128,7 +128,11 @@
         "pick_up_unavailable_at_html": "Attualmente disponibile per il ritiro da <span class=\"{{ class }}\">{{ location_name }}<\/span>",
         "unavailable": "Impossibile caricare la disponibilità per il ritiro",
         "refresh": "Aggiorna"
-      }
+      },
+      "variants_title": "Varianti",
+      "sku_title": "Codice: ",
+      "measure_title": "Misure: ",
+      "package_title": "Confezione: "
     },
     "facets": {
       "mobile_drawer_title": "Filtra i prodotti",
@@ -142,8 +146,7 @@
       "clear_all": "Deseleziona tutto",
       "clear_filters": "Deseleziona filtri",
       "filters_label": "Filtri",
-      "sort_by_label": "Ordina per:",
-      "filter_and_operator_subtitle": "Seleziona tutte"
+      "sort_by_label": "Ordina per:"
     }
   },
   "blogs": {
@@ -167,7 +170,7 @@
   },
   "templates": {
     "home": {
-      "title": "Casa"
+      "title": "Home"
     },
     "404": {
       "eybrow": "404",
